@@ -1,0 +1,134 @@
+{
+  "status": "CANDIDATE_NOT_FINAL_TRAINING_GRAPH",
+  "release": 783,
+  "source": "https://github.com/murthylab/visual-system-parts-list",
+  "selection": "All annotated LPLC2 cells (both hemispheres), their direct pre/post partners on edges >=5 synapses, then induced graph on this node set using edges >=5. Seed cells retained even if isolated.",
+  "scope_warning": "Visual-system repository edge-table scope; not independently certified as full whole-brain partner coverage. No shortest path to descending neurons or giant fiber claimed.",
+  "id_handling": "Root IDs retained as strings, never float",
+  "hashes": {
+    "README.md": "88353b8220619c4da673f64a40ce95dde610c11ebbc3735276d5c4e5a1fbf219",
+    "neuron_table.csv": "8d1de464db0ce17906d5c224d6c1c0db7d4d43259be58a82a8393842d10e4e28",
+    "synapse_table.csv.gz": "9e4f0f619af0fe2ff071f9a5b70634cecddcf393a2bad470021bef3380478147",
+    "synapse_table_compact_ids_map.csv.gz": "bb2a01dbaff47d8eb84b2fd2ae5769cb62aafaa6936fb01cb0a54b5b39461efa"
+  },
+  "summary": {
+    "seed_cells": 210,
+    "left_seeds": 108,
+    "right_seeds": 102,
+    "candidate_nodes": 5750,
+    "candidate_edges": 33071,
+    "self_edges": 0,
+    "missing_annotations": 0,
+    "source_edge_rows": 15091983,
+    "source_selected_pair_duplicates": 0,
+    "top_input_types": [
+      [
+        "PVLP011",
+        9660
+      ],
+      [
+        "Tm5f",
+        9580
+      ],
+      [
+        "LPi11",
+        4199
+      ],
+      [
+        "Y3",
+        3997
+      ],
+      [
+        "Tm5e",
+        2613
+      ],
+      [
+        "Tm20",
+        2314
+      ],
+      [
+        "T5c",
+        2175
+      ],
+      [
+        "T5b",
+        2124
+      ],
+      [
+        "T4c",
+        2095
+      ],
+      [
+        "Tm8b",
+        1759
+      ],
+      [
+        "T5d",
+        1646
+      ],
+      [
+        "Tm36",
+        1575
+      ]
+    ],
+    "top_output_types": [
+      [
+        "PVLP011",
+        8826
+      ],
+      [
+        "PVLP069",
+        5546
+      ],
+      [
+        "PVLP111",
+        4351
+      ],
+      [
+        "DNp103",
+        2622
+      ],
+      [
+        "PVLP151",
+        2335
+      ],
+      [
+        "AVLP479",
+        1852
+      ],
+      [
+        "LPLC4",
+        1426
+      ],
+      [
+        "AVLP531",
+        1307
+      ],
+      [
+        "LHAD1g1",
+        1247
+      ],
+      [
+        "LPLC2",
+        1021
+      ],
+      [
+        "DNp04",
+        1007
+      ],
+      [
+        "PVLP130",
+        999
+      ]
+    ]
+  },
+  "repository_commit": "0d8574d46627ce7fadd968a3c5d602e837325373",
+  "validation": {
+    "weak_components": 1,
+    "largest_weak_component": 5750,
+    "isolated_nodes": 0,
+    "endpoint_check": true,
+    "unique_neuron_ids": true,
+    "unique_directed_pairs": true
+  }
+}

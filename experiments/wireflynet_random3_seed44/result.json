@@ -1,0 +1,96 @@
+{
+  "run": "wireflynet_random3_seed44",
+  "params": 69080,
+  "graph": "random:3",
+  "model": "wireflynet",
+  "seed": 44,
+  "best_epoch": 35,
+  "val": {
+    "accuracy": 94.917,
+    "balanced_accuracy": 76.642,
+    "macro_f1": 0.7476,
+    "per_class": {
+      "FORWARD": {
+        "recall": 0.969,
+        "precision": 0.9764,
+        "f1": 0.9727,
+        "support": 12348
+      },
+      "LEFT": {
+        "recall": 0.6169,
+        "precision": 0.6578,
+        "f1": 0.6367,
+        "support": 402
+      },
+      "RIGHT": {
+        "recall": 0.7134,
+        "precision": 0.5695,
+        "f1": 0.6334,
+        "support": 471
+      }
+    },
+    "confusion": [
+      [
+        11965,
+        129,
+        254
+      ],
+      [
+        154,
+        248,
+        0
+      ],
+      [
+        135,
+        0,
+        336
+      ]
+    ]
+  },
+  "test": {
+    "accuracy": 98.557,
+    "balanced_accuracy": 76.325,
+    "macro_f1": 0.7432,
+    "per_class": {
+      "FORWARD": {
+        "recall": 0.9917,
+        "precision": 0.9934,
+        "f1": 0.9926,
+        "support": 12846
+      },
+      "LEFT": {
+        "recall": 0.4231,
+        "precision": 0.287,
+        "f1": 0.342,
+        "support": 78
+      },
+      "RIGHT": {
+        "recall": 0.875,
+        "precision": 0.9161,
+        "f1": 0.8951,
+        "support": 312
+      }
+    },
+    "confusion": [
+      [
+        12739,
+        82,
+        25
+      ],
+      [
+        45,
+        33,
+        0
+      ],
+      [
+        39,
+        0,
+        273
+      ]
+    ]
+  },
+  "input_preprocess": "v7_retina",
+  "init": "synapse",
+  "init_fanin_normalize": true,
+  "steps": 4
+}

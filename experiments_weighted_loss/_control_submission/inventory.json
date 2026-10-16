@@ -1,0 +1,254 @@
+{
+  "runs": [
+    {
+      "graph": "rewired:0",
+      "seed": 42,
+      "run": "wireflynet_rewired0_seed42"
+    },
+    {
+      "graph": "rewired:0",
+      "seed": 43,
+      "run": "wireflynet_rewired0_seed43"
+    },
+    {
+      "graph": "rewired:0",
+      "seed": 44,
+      "run": "wireflynet_rewired0_seed44"
+    },
+    {
+      "graph": "rewired:1",
+      "seed": 42,
+      "run": "wireflynet_rewired1_seed42"
+    },
+    {
+      "graph": "rewired:1",
+      "seed": 43,
+      "run": "wireflynet_rewired1_seed43"
+    },
+    {
+      "graph": "rewired:1",
+      "seed": 44,
+      "run": "wireflynet_rewired1_seed44"
+    },
+    {
+      "graph": "rewired:2",
+      "seed": 42,
+      "run": "wireflynet_rewired2_seed42"
+    },
+    {
+      "graph": "rewired:2",
+      "seed": 43,
+      "run": "wireflynet_rewired2_seed43"
+    },
+    {
+      "graph": "rewired:2",
+      "seed": 44,
+      "run": "wireflynet_rewired2_seed44"
+    },
+    {
+      "graph": "rewired:3",
+      "seed": 42,
+      "run": "wireflynet_rewired3_seed42"
+    },
+    {
+      "graph": "rewired:3",
+      "seed": 43,
+      "run": "wireflynet_rewired3_seed43"
+    },
+    {
+      "graph": "rewired:3",
+      "seed": 44,
+      "run": "wireflynet_rewired3_seed44"
+    },
+    {
+      "graph": "rewired:4",
+      "seed": 42,
+      "run": "wireflynet_rewired4_seed42"
+    },
+    {
+      "graph": "rewired:4",
+      "seed": 43,
+      "run": "wireflynet_rewired4_seed43"
+    },
+    {
+      "graph": "rewired:4",
+      "seed": 44,
+      "run": "wireflynet_rewired4_seed44"
+    },
+    {
+      "graph": "random:0",
+      "seed": 42,
+      "run": "wireflynet_random0_seed42"
+    },
+    {
+      "graph": "random:0",
+      "seed": 43,
+      "run": "wireflynet_random0_seed43"
+    },
+    {
+      "graph": "random:0",
+      "seed": 44,
+      "run": "wireflynet_random0_seed44"
+    },
+    {
+      "graph": "random:1",
+      "seed": 42,
+      "run": "wireflynet_random1_seed42"
+    },
+    {
+      "graph": "random:1",
+      "seed": 43,
+      "run": "wireflynet_random1_seed43"
+    },
+    {
+      "graph": "random:1",
+      "seed": 44,
+      "run": "wireflynet_random1_seed44"
+    },
+    {
+      "graph": "random:2",
+      "seed": 42,
+      "run": "wireflynet_random2_seed42"
+    },
+    {
+      "graph": "random:2",
+      "seed": 43,
+      "run": "wireflynet_random2_seed43"
+    },
+    {
+      "graph": "random:2",
+      "seed": 44,
+      "run": "wireflynet_random2_seed44"
+    },
+    {
+      "graph": "random:3",
+      "seed": 42,
+      "run": "wireflynet_random3_seed42"
+    },
+    {
+      "graph": "random:3",
+      "seed": 43,
+      "run": "wireflynet_random3_seed43"
+    },
+    {
+      "graph": "random:3",
+      "seed": 44,
+      "run": "wireflynet_random3_seed44"
+    },
+    {
+      "graph": "random:4",
+      "seed": 42,
+      "run": "wireflynet_random4_seed42"
+    },
+    {
+      "graph": "random:4",
+      "seed": 43,
+      "run": "wireflynet_random4_seed43"
+    },
+    {
+      "graph": "random:4",
+      "seed": 44,
+      "run": "wireflynet_random4_seed44"
+    }
+  ],
+  "sha256": {
+    "/Data4/mi_25026207/drone/v8_wireflynet/configs/wireflynet_g1_weighted_loss.json": "268d35beafc99726b26a3b1c2abb57782b7deb912673c848fd7bfbb5b639c567",
+    "/Data4/mi_25026207/drone/v8_wireflynet/models/wireflynet.py": "fa6eabfa95e57a5f291a4ccd79f02ca17255f63593603af66b0b720589a6f840",
+    "/Data4/mi_25026207/drone/data/flyuav_midair_3class_route_split/split_metadata.json": "8ae4df55d6db4b5c94b455703bc31a8917874a382e016c7a4378589fdd66d71b",
+    "/Data4/mi_25026207/drone/data/flyuav_midair_3class_route_split/train/pairs.csv": "034647880ad3693ba8495d9f358833a59f0d7b74f2660a27000cc9e22adf5ebd",
+    "/Data4/mi_25026207/drone/data/flyuav_midair_3class_route_split/train/flow/cache_metadata.json": "9897500c207bf87e32c22f5200cde07ab47808b7d11daa94d9b2e61408611285",
+    "/Data4/mi_25026207/drone/data/flyuav_midair_3class_route_split/val/pairs.csv": "6ab39811f48ca326c04a45d2be8dc947d3d7f21162573cd19e110f0603abe7f7",
+    "/Data4/mi_25026207/drone/data/flyuav_midair_3class_route_split/val/flow/cache_metadata.json": "9194a8ffec1d70e35aa126d9cbebc3176e9d72da4414c3f0c40b1aa0362ff38f",
+    "/Data4/mi_25026207/drone/v8_wireflynet/experiments_weighted_loss/wireflynet_bio_seed42/run_metadata.json": "b95fed12516442e4c7dee7113ceb52b1cb876fc663b8a80a16c778a72efab23c",
+    "/Data4/mi_25026207/drone/v8_wireflynet/experiments_weighted_loss/wireflynet_bio_seed42/validation_result.json": "3aaedc276769b4cc0e57987b982b3cd61ca82a76ecb436eef96f3b4361e9c731",
+    "/Data4/mi_25026207/drone/v8_wireflynet/experiments_weighted_loss/wireflynet_bio_seed43/run_metadata.json": "a1bfd9c4c4e5af4854b71a03cb5398bb3d93103d08d12ea502987d79c76f5730",
+    "/Data4/mi_25026207/drone/v8_wireflynet/experiments_weighted_loss/wireflynet_bio_seed43/validation_result.json": "6d11cee17ef7c3bc66ce027dcd08e3a44384f9b6ab2788dbd5e36ceb9c7978b8",
+    "/Data4/mi_25026207/drone/v8_wireflynet/experiments_weighted_loss/wireflynet_bio_seed44/run_metadata.json": "db270af252ab7e3c8c681f6fc8c35791c666d25993bcf671d3d5ddf3e90b119c",
+    "/Data4/mi_25026207/drone/v8_wireflynet/experiments_weighted_loss/wireflynet_bio_seed44/validation_result.json": "927a994e43af2bb33e4249137649cd810408ec43a9a385af4f3c3424cfd0bc6b",
+    "/Data4/mi_25026207/drone/v8_wireflynet/experiments_weighted_loss/cnn_matched_none_seed42/run_metadata.json": "94673546cf588911e9e9d00d7c1e6fb1843e5bb21d25a4625dfecb57f325eeed",
+    "/Data4/mi_25026207/drone/v8_wireflynet/experiments_weighted_loss/cnn_matched_none_seed42/validation_result.json": "6860bfc95c4474ec4891e03763036fc78b58596cdfb51cfc029c8284e46cfa0d",
+    "/Data4/mi_25026207/drone/v8_wireflynet/experiments_weighted_loss/cnn_matched_none_seed43/run_metadata.json": "516e29728983813b9090ea068f781e7f9334a7ae6c76ad3a470a8038bf65c655",
+    "/Data4/mi_25026207/drone/v8_wireflynet/experiments_weighted_loss/cnn_matched_none_seed43/validation_result.json": "1af9aa33a7191c322cd86104b13f6030da4f6fb9f79be030d64ce10cbd635fd8",
+    "/Data4/mi_25026207/drone/v8_wireflynet/experiments_weighted_loss/cnn_matched_none_seed44/run_metadata.json": "df4a5392d535ff0c4eb2ff297a3df1f9b6ba82bb2d393c883d9e7c0b78e8090d",
+    "/Data4/mi_25026207/drone/v8_wireflynet/experiments_weighted_loss/cnn_matched_none_seed44/validation_result.json": "2d83c57cef127791c82bab7918b95ff8e0d53ffd5f26c5a87e72c7a7e0db8560",
+    "/Data4/mi_25026207/drone/v8_wireflynet/graphs/biological/g1_bio.npz": "3f43d2c6d21a35306071ae85cd108efe439a1521c9ccf498842f90e36563adb9",
+    "/Data4/mi_25026207/drone/v8_wireflynet/graphs/rewired/g1_rewired_0.npz": "1f300494aec4a0d8f1c98cbc10f94a6ea977498e096430025988d8aca390b937",
+    "/Data4/mi_25026207/drone/v8_wireflynet/graphs/rewired/g1_rewired_1.npz": "bd1b05a55e06e260eaa7562eb302582d1a2ff67c6f19b85ff4f11db5ebc39229",
+    "/Data4/mi_25026207/drone/v8_wireflynet/graphs/rewired/g1_rewired_2.npz": "063b879f66b6ca9960d8a5c58353c778ece10acf81a10f4cf916377ff2384b8b",
+    "/Data4/mi_25026207/drone/v8_wireflynet/graphs/rewired/g1_rewired_3.npz": "4406ce3601630221f001f0eb91716d4329dd2525c5f2e5fe0bd7b6b7c7732d1c",
+    "/Data4/mi_25026207/drone/v8_wireflynet/graphs/rewired/g1_rewired_4.npz": "a584694cbddb4af035c743d235975daae268eb623a15f670525da9004240f578",
+    "/Data4/mi_25026207/drone/v8_wireflynet/graphs/random_sparse/g1_random_0.npz": "c2d4d4deff91e2a1a4ef053bfa83934745fef225a10e3b973b699be7b624c5af",
+    "/Data4/mi_25026207/drone/v8_wireflynet/graphs/random_sparse/g1_random_1.npz": "6e455587f04bffa0088f3557834839552c83bdacb5eeee1bf69a0162d27cd536",
+    "/Data4/mi_25026207/drone/v8_wireflynet/graphs/random_sparse/g1_random_2.npz": "c0bbf3d99cfd34a5330c6aadb4ea2da100045d27263df0e4ed993a23d6648fc1",
+    "/Data4/mi_25026207/drone/v8_wireflynet/graphs/random_sparse/g1_random_3.npz": "233f7d719a6547b5b465b0f0cebd26c82155c92f421081a819c27a9594fa5d84",
+    "/Data4/mi_25026207/drone/v8_wireflynet/graphs/random_sparse/g1_random_4.npz": "619be5d9d934c6c61b50ddaeb22e2e57bc6d7baad56d33c193f09614d1362f7e"
+  },
+  "graphs": [
+    {
+      "graph": "rewired:0",
+      "nodes": 556,
+      "edges": 6470,
+      "sha256": "1f300494aec4a0d8f1c98cbc10f94a6ea977498e096430025988d8aca390b937"
+    },
+    {
+      "graph": "rewired:1",
+      "nodes": 556,
+      "edges": 6470,
+      "sha256": "bd1b05a55e06e260eaa7562eb302582d1a2ff67c6f19b85ff4f11db5ebc39229"
+    },
+    {
+      "graph": "rewired:2",
+      "nodes": 556,
+      "edges": 6470,
+      "sha256": "063b879f66b6ca9960d8a5c58353c778ece10acf81a10f4cf916377ff2384b8b"
+    },
+    {
+      "graph": "rewired:3",
+      "nodes": 556,
+      "edges": 6470,
+      "sha256": "4406ce3601630221f001f0eb91716d4329dd2525c5f2e5fe0bd7b6b7c7732d1c"
+    },
+    {
+      "graph": "rewired:4",
+      "nodes": 556,
+      "edges": 6470,
+      "sha256": "a584694cbddb4af035c743d235975daae268eb623a15f670525da9004240f578"
+    },
+    {
+      "graph": "random:0",
+      "nodes": 556,
+      "edges": 6470,
+      "sha256": "c2d4d4deff91e2a1a4ef053bfa83934745fef225a10e3b973b699be7b624c5af"
+    },
+    {
+      "graph": "random:1",
+      "nodes": 556,
+      "edges": 6470,
+      "sha256": "6e455587f04bffa0088f3557834839552c83bdacb5eeee1bf69a0162d27cd536"
+    },
+    {
+      "graph": "random:2",
+      "nodes": 556,
+      "edges": 6470,
+      "sha256": "c0bbf3d99cfd34a5330c6aadb4ea2da100045d27263df0e4ed993a23d6648fc1"
+    },
+    {
+      "graph": "random:3",
+      "nodes": 556,
+      "edges": 6470,
+      "sha256": "233f7d719a6547b5b465b0f0cebd26c82155c92f421081a819c27a9594fa5d84"
+    },
+    {
+      "graph": "random:4",
+      "nodes": 556,
+      "edges": 6470,
+      "sha256": "619be5d9d934c6c61b50ddaeb22e2e57bc6d7baad56d33c193f09614d1362f7e"
+    }
+  ],
+  "loss_class_weights": {
+    "FORWARD": 0.3704925660385339,
+    "LEFT": 6.646936065262759,
+    "RIGHT": 6.646936065262759
+  },
+  "note": "Same weighted pilot protocol; only train/val data inspected; no graph regeneration"
+}

@@ -1,0 +1,70 @@
+#!/bin/bash
+#PBS -N v8_wctrl
+#PBS -l select=1:ncpus=8:mem=32gb:ngpus=1
+#PBS -l walltime=24:00:00
+#PBS -q workq
+#PBS -V
+#PBS -j oe
+
+set -eo pipefail
+
+if [[ -z "${PBS_JOBID:-}" ]]; then
+    echo "Use qsub; do not run training on the login node."
+    exit 1
+fi
+GRAPH=${GRAPH:?Submit with GRAPH=rewired:0..4 or random:0..4}
+SEED=${SEED:?Submit with SEED=42,43,44}
+case "$GRAPH" in
+    rewired:[0-4]|random:[0-4]) ;;
+    *) echo "Only the 10 declared control graphs are allowed."; exit 1 ;;
+esac
+case "$SEED" in
+    42|43|44) ;;
+    *) echo "Only seeds42/43/44 are allowed."; exit 1 ;;
+esac
+
+ROOT=/Data4/mi_25026207/drone/v8_wireflynet
+export WF_EXP_ROOT="$ROOT/experiments_weighted_loss"
+RUN="wireflynet_${GRAPH//:/}_seed${SEED}"
+OUT="$WF_EXP_ROOT/$RUN"
+
+cd "$ROOT"
+mkdir -p "$ROOT/logs/weighted_loss_controls"
+exec >> "$ROOT/logs/weighted_loss_controls/${RUN}_${PBS_JOBID}.log" 2>&1
+source activate flyuav
+
+python3 tools/preflight_weighted_controls.py --verify
+
+mkdir -p "$OUT"
+for artifact in best.pt history.csv run_metadata.json validation_result.json result.json test_predictions.csv control_job_manifest.json; do
+    if [[ -e "$OUT/$artifact" ]]; then
+        echo "Existing run artifact: $OUT/$artifact. Refusing to overwrite."
+        exit 1
+    fi
+done
+if ! mkdir "$OUT/.weighted_control_lock"; then
+    echo "Run already claimed: $OUT/.weighted_control_lock. Do not duplicate it."
+    exit 1
+fi
+
+export V8_CONTROL_RUN="$RUN" V8_CONTROL_GRAPH="$GRAPH" V8_CONTROL_SEED="$SEED"
+python3 - <<'PY'
+import json, os
+from pathlib import Path
+root = Path("/Data4/mi_25026207/drone/v8_wireflynet")
+plan = json.loads((root/"experiments_weighted_loss/_control_submission/inventory.json").read_text())
+graph = next(g for g in plan["graphs"] if g["graph"] == os.environ["V8_CONTROL_GRAPH"])
+record = dict(run=os.environ["V8_CONTROL_RUN"], graph=graph,
+              seed=int(os.environ["V8_CONTROL_SEED"]), pbs_job_id=os.environ["PBS_JOBID"],
+              protocol="Frozen pilot config; validation-only weighted graph control")
+(root/"experiments_weighted_loss"/record["run"]/"control_job_manifest.json").write_text(json.dumps(record,indent=2))
+PY
+
+echo "Run: $RUN | Job: $PBS_JOBID | Output: $OUT"
+echo "Validation only; no test evaluation."
+
+python3 -u models/wireflynet.py \
+    --mode train --model wireflynet --graph "$GRAPH" --seed "$SEED" \
+    --config configs/wireflynet_g1_weighted_loss.json \
+    --epochs 40 --batch 64 --lr 0.002 --patience 12 --workers 4 \
+    --skip-test-eval

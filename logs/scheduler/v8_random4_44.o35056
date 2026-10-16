@@ -1,0 +1,40 @@
+
+wireflynet_random4_seed44: 69,080 params | graph random:4 N=556 E=6470 | train 52554 val 13221 test 13236
+  ep 001 | loss 0.4472 acc 87.28 | val loss 1.0910 acc 13.28 F1 0.1408 | 309s *
+  ep 002 | loss 0.2688 acc 95.78 | val loss 0.7678 acc 66.67 F1 0.4294 | 302s *
+  ep 003 | loss 0.2481 acc 96.58 | val loss 0.3644 acc 84.89 F1 0.6150 | 303s *
+  ep 004 | loss 0.2358 acc 97.15 | val loss 0.3026 acc 87.14 F1 0.6571 | 298s *
+  ep 005 | loss 0.2248 acc 97.73 | val loss 0.2822 acc 88.39 F1 0.6714 | 307s *
+  ep 006 | loss 0.2119 acc 98.21 | val loss 0.2663 acc 89.52 F1 0.6872 | 305s *
+  ep 007 | loss 0.2080 acc 98.42 | val loss 0.2528 acc 90.16 F1 0.6978 | 301s *
+  ep 008 | loss 0.1996 acc 98.79 | val loss 0.2392 acc 90.79 F1 0.7041 | 297s *
+  ep 009 | loss 0.1978 acc 98.90 | val loss 0.2438 acc 91.01 F1 0.7064 | 302s *
+  ep 010 | loss 0.1935 acc 99.01 | val loss 0.2374 acc 91.38 F1 0.7123 | 303s *
+  ep 011 | loss 0.1923 acc 99.09 | val loss 0.2349 acc 91.64 F1 0.7151 | 300s *
+  ep 012 | loss 0.1925 acc 99.10 | val loss 0.2120 acc 92.28 F1 0.7272 | 303s *
+  ep 013 | loss 0.1877 acc 99.26 | val loss 0.2135 acc 92.51 F1 0.7291 | 299s *
+  ep 014 | loss 0.1885 acc 99.25 | val loss 0.2158 acc 92.46 F1 0.7193 | 300s
+  ep 015 | loss 0.1840 acc 99.43 | val loss 0.2277 acc 92.52 F1 0.7224 | 297s
+  ep 016 | loss 0.1858 acc 99.35 | val loss 0.2234 acc 92.80 F1 0.7292 | 305s *
+  ep 017 | loss 0.1822 acc 99.51 | val loss 0.2199 acc 92.82 F1 0.7284 | 301s
+  ep 018 | loss 0.1831 acc 99.47 | val loss 0.2204 acc 92.87 F1 0.7308 | 308s *
+  ep 019 | loss 0.1818 acc 99.54 | val loss 0.2153 acc 93.09 F1 0.7361 | 298s *
+  ep 020 | loss 0.1800 acc 99.62 | val loss 0.2119 acc 93.11 F1 0.7324 | 305s
+  ep 021 | loss 0.1814 acc 99.56 | val loss 0.2131 acc 93.10 F1 0.7296 | 303s
+  ep 022 | loss 0.1792 acc 99.60 | val loss 0.2025 acc 93.32 F1 0.7321 | 300s
+  ep 023 | loss 0.1784 acc 99.67 | val loss 0.2101 acc 93.31 F1 0.7330 | 303s
+  ep 024 | loss 0.1779 acc 99.70 | val loss 0.2110 acc 93.38 F1 0.7276 | 300s
+  ep 025 | loss 0.1770 acc 99.71 | val loss 0.2042 acc 93.63 F1 0.7269 | 304s
+  ep 026 | loss 0.1774 acc 99.70 | val loss 0.2043 acc 93.79 F1 0.7266 | 297s
+  ep 027 | loss 0.1771 acc 99.71 | val loss 0.2075 acc 93.75 F1 0.7252 | 302s
+  ep 028 | loss 0.1754 acc 99.76 | val loss 0.2087 acc 93.72 F1 0.7218 | 295s
+  ep 029 | loss 0.1745 acc 99.81 | val loss 0.2128 acc 93.68 F1 0.7188 | 301s
+  ep 030 | loss 0.1749 acc 99.79 | val loss 0.2108 acc 93.82 F1 0.7213 | 299s
+  ep 031 | loss 0.1749 acc 99.78 | val loss 0.2117 acc 93.70 F1 0.7159 | 296s
+  early stop at epoch 31
+Loaded /Data4/mi_25026207/drone/v8_wireflynet/experiments/wireflynet_random4_seed44/best.pt | best epoch 19 | EVALUATION ONLY
+{
+  "accuracy": 97.416,
+  "balanced_accuracy": 84.374,
+  "macro_f1": 0.7048
+}

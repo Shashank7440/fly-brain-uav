@@ -1,0 +1,12 @@
+test_exact_scope_and_commands (__main__.ControlTests.test_exact_scope_and_commands) ... ok
+test_existing_control_target_rejected (__main__.ControlTests.test_existing_control_target_rejected) ... ok
+test_interruption_and_rejection_require_review (__main__.ControlTests.test_interruption_and_rejection_require_review) ... ok
+test_pilot_worker_mismatch_rejected (__main__.ControlTests.test_pilot_worker_mismatch_rejected) ... ok
+test_prepare_verify_and_changed_input (__main__.ControlTests.test_prepare_verify_and_changed_input) ... ok
+test_successful_submission_is_recorded_and_duplicates_blocked (__main__.ControlTests.test_successful_submission_is_recorded_and_duplicates_blocked) ... ok
+test_syntax_and_pbs_protocol (__main__.ControlTests.test_syntax_and_pbs_protocol) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.089s
+
+OK

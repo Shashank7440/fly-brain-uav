@@ -1,0 +1,49 @@
+#!/bin/bash
+#PBS -N v8_wloss
+#PBS -l select=1:ncpus=8:mem=32gb:ngpus=1
+#PBS -l walltime=24:00:00
+#PBS -q workq
+#PBS -V
+#PBS -j oe
+
+set -eo pipefail
+
+if [[ -z "${PBS_JOBID:-}" ]]; then
+    echo "Submit this script with qsub; do not run it on the login node."
+    exit 1
+fi
+
+GRAPH=${GRAPH:-bio}
+SEED=${SEED:-42}
+MODEL=${MODEL:-wireflynet}
+
+case "$MODEL:$GRAPH" in
+    wireflynet:bio|cnn_matched:none) ;;
+    *) echo "This follow-up allows only Bio or matched CNN."; exit 1 ;;
+esac
+
+case "$SEED" in
+    42|43|44) ;;
+    *) echo "Use seed 42, 43, or 44."; exit 1 ;;
+esac
+
+ROOT=/Data4/mi_25026207/drone/v8_wireflynet
+export WF_EXP_ROOT="$ROOT/experiments_weighted_loss"
+
+mkdir -p "$ROOT/logs/weighted_loss"
+exec >> "$ROOT/logs/weighted_loss/${MODEL}_${GRAPH}_seed${SEED}_${PBS_JOBID}.log" 2>&1
+
+echo "Job: $PBS_JOBID"
+echo "Model: $MODEL | Graph: $GRAPH | Seed: $SEED"
+echo "Output directory: $WF_EXP_ROOT"
+
+cd "$ROOT/models"
+source activate flyuav
+
+python3 -u wireflynet.py \
+    --mode train \
+    --model "$MODEL" \
+    --graph "$GRAPH" \
+    --config ../configs/wireflynet_g1_weighted_loss.json \
+    --seed "$SEED" \
+    --skip-test-eval

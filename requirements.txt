@@ -1,0 +1,9 @@
+# Unpinned dependencies; not the original exact cluster environment.
+# Install a mutually compatible torch/torchvision build for your CUDA setup.
+numpy
+pandas
+torch
+torchvision
+Pillow
+opencv-python
+matplotlib

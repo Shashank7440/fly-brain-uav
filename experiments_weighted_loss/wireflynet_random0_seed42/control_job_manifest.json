@@ -1,0 +1,12 @@
+{
+  "run": "wireflynet_random0_seed42",
+  "graph": {
+    "graph": "random:0",
+    "nodes": 556,
+    "edges": 6470,
+    "sha256": "c2d4d4deff91e2a1a4ef053bfa83934745fef225a10e3b973b699be7b624c5af"
+  },
+  "seed": 42,
+  "pbs_job_id": "35442.master",
+  "protocol": "Frozen pilot config; validation-only weighted graph control"
+}

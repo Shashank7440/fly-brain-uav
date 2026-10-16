@@ -1,0 +1,47 @@
+Frozen control inventory verified.
+Run: wireflynet_random1_seed42 | Job: 35445.master | Output: /Data4/mi_25026207/drone/v8_wireflynet/experiments_weighted_loss/wireflynet_random1_seed42
+Validation only; no test evaluation.
+
+wireflynet_random1_seed42: 69,080 params | graph random:1 N=556 E=6470 | train 52554 val 13221 test ISOLATED (pilot: eval_test=false)
+  sampler=shuffle | class_weighting=inverse_frequency | train counts=[47283, 2931, 2340] | expected post-flip counts=[47283.0, 2635.5, 2635.5] | loss weights=[0.3704925660385339, 6.646936065262759, 6.646936065262759]
+  ep 001 | loss 0.8506 acc 73.60 | val loss 0.9614 acc 93.03 F1 0.5022 | 329s *
+  ep 002 | loss 0.6955 acc 90.97 | val loss 0.6348 acc 89.87 F1 0.5863 | 344s *
+  ep 003 | loss 0.6746 acc 93.87 | val loss 0.6236 acc 86.10 F1 0.6205 | 323s *
+  ep 004 | loss 0.6549 acc 94.43 | val loss 0.6578 acc 85.70 F1 0.6245 | 337s *
+  ep 005 | loss 0.6508 acc 95.06 | val loss 0.6538 acc 87.17 F1 0.6453 | 327s *
+  ep 006 | loss 0.6422 acc 95.50 | val loss 0.6383 acc 88.69 F1 0.6712 | 345s *
+  ep 007 | loss 0.6339 acc 95.99 | val loss 0.6464 acc 89.31 F1 0.6813 | 369s *
+  ep 008 | loss 0.6225 acc 96.68 | val loss 0.6519 acc 89.15 F1 0.6725 | 386s
+  ep 009 | loss 0.6215 acc 96.92 | val loss 0.6540 acc 89.97 F1 0.6850 | 401s *
+  ep 010 | loss 0.6155 acc 97.12 | val loss 0.6520 acc 90.37 F1 0.6944 | 383s *
+  ep 011 | loss 0.6170 acc 97.12 | val loss 0.6609 acc 90.45 F1 0.6991 | 384s *
+  ep 012 | loss 0.6157 acc 97.32 | val loss 0.6501 acc 90.92 F1 0.7071 | 352s *
+  ep 013 | loss 0.6056 acc 97.69 | val loss 0.6463 acc 91.14 F1 0.7125 | 353s *
+  ep 014 | loss 0.6075 acc 97.82 | val loss 0.6433 acc 91.35 F1 0.7141 | 347s *
+  ep 015 | loss 0.6065 acc 97.90 | val loss 0.6467 acc 91.16 F1 0.7107 | 344s
+  ep 016 | loss 0.6046 acc 98.10 | val loss 0.6369 acc 91.61 F1 0.7202 | 352s *
+  ep 017 | loss 0.6019 acc 98.17 | val loss 0.6330 acc 91.79 F1 0.7210 | 353s *
+  ep 018 | loss 0.6017 acc 98.31 | val loss 0.6313 acc 92.08 F1 0.7281 | 348s *
+  ep 019 | loss 0.6001 acc 98.57 | val loss 0.6237 acc 92.46 F1 0.7312 | 346s *
+  ep 020 | loss 0.5906 acc 98.72 | val loss 0.6296 acc 92.42 F1 0.7280 | 352s
+  ep 021 | loss 0.5982 acc 98.63 | val loss 0.6168 acc 92.84 F1 0.7333 | 352s *
+  ep 022 | loss 0.5950 acc 98.86 | val loss 0.6235 acc 92.91 F1 0.7326 | 346s
+  ep 023 | loss 0.5922 acc 98.92 | val loss 0.6185 acc 93.08 F1 0.7353 | 347s *
+  ep 024 | loss 0.5930 acc 98.89 | val loss 0.6205 acc 93.26 F1 0.7384 | 347s *
+  ep 025 | loss 0.5930 acc 98.94 | val loss 0.6097 acc 93.54 F1 0.7440 | 345s *
+  ep 026 | loss 0.5886 acc 99.08 | val loss 0.6097 acc 93.42 F1 0.7362 | 328s
+  ep 027 | loss 0.5899 acc 99.04 | val loss 0.6194 acc 93.33 F1 0.7379 | 328s
+  ep 028 | loss 0.5894 acc 99.26 | val loss 0.6136 acc 93.49 F1 0.7346 | 333s
+  ep 029 | loss 0.5894 acc 99.20 | val loss 0.6022 acc 93.75 F1 0.7435 | 336s
+  ep 030 | loss 0.5836 acc 99.29 | val loss 0.6006 acc 93.78 F1 0.7403 | 344s
+  ep 031 | loss 0.5826 acc 99.36 | val loss 0.5937 acc 93.98 F1 0.7397 | 345s
+  ep 032 | loss 0.5886 acc 99.40 | val loss 0.5968 acc 93.90 F1 0.7369 | 344s
+  ep 033 | loss 0.5842 acc 99.41 | val loss 0.5976 acc 93.92 F1 0.7377 | 355s
+  ep 034 | loss 0.5814 acc 99.47 | val loss 0.5963 acc 94.08 F1 0.7404 | 337s
+  ep 035 | loss 0.5828 acc 99.48 | val loss 0.5929 acc 94.18 F1 0.7426 | 357s
+  ep 036 | loss 0.5849 acc 99.53 | val loss 0.5913 acc 94.34 F1 0.7443 | 341s *
+  ep 037 | loss 0.5862 acc 99.52 | val loss 0.5909 acc 94.31 F1 0.7411 | 346s
+  ep 038 | loss 0.5879 acc 99.57 | val loss 0.5866 acc 94.37 F1 0.7387 | 344s
+  ep 039 | loss 0.5834 acc 99.59 | val loss 0.5859 acc 94.40 F1 0.7413 | 363s
+  ep 040 | loss 0.5866 acc 99.59 | val loss 0.5848 acc 94.46 F1 0.7418 | 367s
+Test evaluation SKIPPED (pilot: validation-only decisions; run --mode eval when the config is locked).

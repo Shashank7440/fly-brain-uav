@@ -1,0 +1,12 @@
+test_eval_guard_blocks_before_model_or_data_loading (__main__.PatchTests.test_eval_guard_blocks_before_model_or_data_loading) ... ok
+test_model_implementations_and_selection_rule_unchanged (__main__.PatchTests.test_model_implementations_and_selection_rule_unchanged) ... ok
+test_original_defaults_and_double_weight_guard (__main__.PatchTests.test_original_defaults_and_double_weight_guard) ... ok
+test_sampler_routing_with_mock_loader (__main__.PatchTests.test_sampler_routing_with_mock_loader) ... ok
+test_summary_tool_against_real_baseline_and_synthetic_followup (__main__.PatchTests.test_summary_tool_against_real_baseline_and_synthetic_followup) ... ok
+test_syntax_and_config (__main__.PatchTests.test_syntax_and_config) ... ok
+test_weights_derive_from_training_labels_and_flip (__main__.PatchTests.test_weights_derive_from_training_labels_and_flip) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.199s
+
+OK

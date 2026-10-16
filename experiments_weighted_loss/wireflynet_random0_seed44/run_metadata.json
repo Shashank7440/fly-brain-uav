@@ -1,0 +1,73 @@
+{
+  "run": "wireflynet_random0_seed44",
+  "config": {
+    "comment": "V8 follow-up validation-only ablation: shuffled training sampling plus inverse-frequency weighted CE, replacing balanced sampling plus unweighted CE. Weights use training labels and expected counts after the unchanged 50% LEFT/RIGHT-swapping horizontal flip. Original 36 runs remain frozen; already-inspected test is not used for selection.",
+    "input_preprocess": "v7_retina",
+    "eval_test": false,
+    "v8_root": "/Data4/mi_25026207/drone/v8_wireflynet",
+    "dataset_root": "/Data4/mi_25026207/drone/data/flyuav_midair_3class_route_split",
+    "image_subroot": "/Data4/mi_25026207/drone/data/flyuav_midair_3class/MidAir_HPC/Kite_training",
+    "graphs_dir": "/Data4/mi_25026207/drone/v8_wireflynet/graphs",
+    "exp_root": "/Data4/mi_25026207/drone/v8_wireflynet/experiments_weighted_loss",
+    "enc_dim": 128,
+    "enc_channels": [
+      16,
+      32,
+      64
+    ],
+    "steps": 4,
+    "phi": "tanh",
+    "alpha_mode": "learnable",
+    "alpha_init_logit": 2.0,
+    "init": "synapse",
+    "init_fanin_normalize": true,
+    "epochs": 40,
+    "batch": 64,
+    "lr": 0.002,
+    "patience": 12,
+    "weight_decay": 0.0001,
+    "label_smoothing": 0.05,
+    "overfit_n": 64,
+    "overfit_epochs": 60,
+    "train_sampler": "shuffle",
+    "class_weighting": "inverse_frequency"
+  },
+  "resolved_arguments": {
+    "mode": "train",
+    "graph": "random:0",
+    "skip_test_eval": true,
+    "no_fanin_norm": false,
+    "model": "wireflynet",
+    "config": "configs/wireflynet_g1_weighted_loss.json",
+    "seed": 44,
+    "epochs": 40,
+    "batch": 64,
+    "lr": 0.002,
+    "patience": 12,
+    "workers": 4
+  },
+  "train_sampler": "shuffle",
+  "class_weighting": "inverse_frequency",
+  "raw_training_class_counts": {
+    "FORWARD": 47283,
+    "LEFT": 2931,
+    "RIGHT": 2340
+  },
+  "expected_augmented_training_class_counts": {
+    "FORWARD": 47283.0,
+    "LEFT": 2635.5,
+    "RIGHT": 2635.5
+  },
+  "horizontal_flip_probability": 0.5,
+  "loss_class_weights": {
+    "FORWARD": 0.3704925660385339,
+    "LEFT": 6.646936065262759,
+    "RIGHT": 6.646936065262759
+  },
+  "training_rows": 52554,
+  "config_sha256": "268d35beafc99726b26a3b1c2abb57782b7deb912673c848fd7bfbb5b639c567",
+  "script_sha256": "fa6eabfa95e57a5f291a4ccd79f02ca17255f63593603af66b0b720589a6f840",
+  "train_manifest_sha256": "034647880ad3693ba8495d9f358833a59f0d7b74f2660a27000cc9e22adf5ebd",
+  "val_manifest_sha256": "6ab39811f48ca326c04a45d2be8dc947d3d7f21162573cd19e110f0603abe7f7",
+  "eval_test": false
+}

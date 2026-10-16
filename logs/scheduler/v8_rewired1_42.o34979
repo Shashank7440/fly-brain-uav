@@ -1,0 +1,45 @@
+
+wireflynet_rewired1_seed42: 69,080 params | graph rewired:1 N=556 E=6470 | train 52554 val 13221 test 13236
+  ep 001 | loss 0.4630 acc 86.69 | val loss 1.1079 acc 4.93 F1 0.1098 | 302s *
+  ep 002 | loss 0.2712 acc 95.69 | val loss 0.7103 acc 74.44 F1 0.5030 | 308s *
+  ep 003 | loss 0.2492 acc 96.58 | val loss 0.3426 acc 86.57 F1 0.6239 | 311s *
+  ep 004 | loss 0.2367 acc 97.16 | val loss 0.3196 acc 86.79 F1 0.6417 | 302s *
+  ep 005 | loss 0.2253 acc 97.64 | val loss 0.2800 acc 88.72 F1 0.6710 | 296s *
+  ep 006 | loss 0.2156 acc 98.01 | val loss 0.2529 acc 89.97 F1 0.6859 | 301s *
+  ep 007 | loss 0.2097 acc 98.28 | val loss 0.2416 acc 90.82 F1 0.7012 | 303s *
+  ep 008 | loss 0.2009 acc 98.70 | val loss 0.2332 acc 91.32 F1 0.7077 | 300s *
+  ep 009 | loss 0.1989 acc 98.85 | val loss 0.2304 acc 91.71 F1 0.7158 | 298s *
+  ep 010 | loss 0.1991 acc 98.84 | val loss 0.2220 acc 92.06 F1 0.7223 | 297s *
+  ep 011 | loss 0.1957 acc 98.97 | val loss 0.2247 acc 91.92 F1 0.7219 | 294s
+  ep 012 | loss 0.1927 acc 99.05 | val loss 0.2198 acc 92.44 F1 0.7308 | 295s *
+  ep 013 | loss 0.1912 acc 99.13 | val loss 0.2135 acc 92.62 F1 0.7341 | 293s *
+  ep 014 | loss 0.1884 acc 99.28 | val loss 0.2100 acc 92.92 F1 0.7359 | 297s *
+  ep 015 | loss 0.1863 acc 99.34 | val loss 0.2117 acc 92.86 F1 0.7301 | 299s
+  ep 016 | loss 0.1859 acc 99.33 | val loss 0.2211 acc 92.84 F1 0.7291 | 299s
+  ep 017 | loss 0.1858 acc 99.36 | val loss 0.2208 acc 93.07 F1 0.7332 | 297s
+  ep 018 | loss 0.1838 acc 99.45 | val loss 0.2112 acc 93.41 F1 0.7347 | 296s
+  ep 019 | loss 0.1831 acc 99.44 | val loss 0.2065 acc 93.59 F1 0.7354 | 297s
+  ep 020 | loss 0.1818 acc 99.51 | val loss 0.2015 acc 93.69 F1 0.7419 | 298s *
+  ep 021 | loss 0.1809 acc 99.55 | val loss 0.1948 acc 93.81 F1 0.7440 | 299s *
+  ep 022 | loss 0.1807 acc 99.57 | val loss 0.1991 acc 93.77 F1 0.7379 | 300s
+  ep 023 | loss 0.1795 acc 99.61 | val loss 0.1978 acc 93.99 F1 0.7463 | 299s *
+  ep 024 | loss 0.1794 acc 99.63 | val loss 0.1930 acc 94.09 F1 0.7481 | 299s *
+  ep 025 | loss 0.1783 acc 99.66 | val loss 0.1902 acc 94.21 F1 0.7452 | 294s
+  ep 026 | loss 0.1779 acc 99.67 | val loss 0.1944 acc 94.13 F1 0.7404 | 296s
+  ep 027 | loss 0.1772 acc 99.68 | val loss 0.1933 acc 94.19 F1 0.7305 | 302s
+  ep 028 | loss 0.1757 acc 99.74 | val loss 0.1965 acc 94.27 F1 0.7281 | 298s
+  ep 029 | loss 0.1754 acc 99.76 | val loss 0.2017 acc 94.03 F1 0.7177 | 297s
+  ep 030 | loss 0.1755 acc 99.75 | val loss 0.2007 acc 94.16 F1 0.7225 | 298s
+  ep 031 | loss 0.1752 acc 99.79 | val loss 0.1972 acc 94.30 F1 0.7267 | 290s
+  ep 032 | loss 0.1749 acc 99.80 | val loss 0.1936 acc 94.46 F1 0.7306 | 293s
+  ep 033 | loss 0.1741 acc 99.82 | val loss 0.1934 acc 94.57 F1 0.7269 | 295s
+  ep 034 | loss 0.1739 acc 99.82 | val loss 0.1962 acc 94.46 F1 0.7124 | 288s
+  ep 035 | loss 0.1729 acc 99.88 | val loss 0.1983 acc 94.46 F1 0.7045 | 292s
+  ep 036 | loss 0.1734 acc 99.83 | val loss 0.1988 acc 94.43 F1 0.6977 | 289s
+  early stop at epoch 36
+Loaded /Data4/mi_25026207/drone/v8_wireflynet/experiments/wireflynet_rewired1_seed42/best.pt | best epoch 24 | EVALUATION ONLY
+{
+  "accuracy": 97.363,
+  "balanced_accuracy": 91.704,
+  "macro_f1": 0.7263
+}

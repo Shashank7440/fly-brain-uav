@@ -1,0 +1,13 @@
+arm,run,model,graph,seed,params,epochs_completed,best_epoch,val_accuracy,val_balanced_accuracy,val_macro_f1,val_FORWARD_recall,val_FORWARD_precision,val_FORWARD_f1,val_FORWARD_support,val_LEFT_recall,val_LEFT_precision,val_LEFT_f1,val_LEFT_support,val_RIGHT_recall,val_RIGHT_precision,val_RIGHT_f1,val_RIGHT_support
+baseline,wireflynet_bio_seed42,wireflynet,bio,42,69080,40,32,94.146,81.55,0.742,0.9555,0.9813,0.9682,12348,0.7861,0.5735,0.6632,402,0.7049,0.5139,0.5944,471
+baseline,wireflynet_bio_seed43,wireflynet,bio,43,69080,36,24,93.525,86.178,0.7434,0.9432,0.9869,0.9646,12348,0.8035,0.5768,0.6715,402,0.8386,0.4598,0.594,471
+baseline,wireflynet_bio_seed44,wireflynet,bio,44,69080,38,26,94.017,86.018,0.7597,0.949,0.9864,0.9674,12348,0.8184,0.6541,0.7271,402,0.8132,0.4565,0.5847,471
+baseline,cnn_matched_none_seed42,cnn_matched,none,42,83971,38,26,93.752,83.558,0.7429,0.9491,0.9835,0.966,12348,0.8358,0.6188,0.7111,402,0.7219,0.4462,0.5515,471
+baseline,cnn_matched_none_seed43,cnn_matched,none,43,83971,32,20,94.32,85.159,0.7633,0.9531,0.9856,0.9691,12348,0.7736,0.6561,0.71,402,0.828,0.4839,0.6108,471
+baseline,cnn_matched_none_seed44,cnn_matched,none,44,83971,25,13,92.542,88.326,0.736,0.9302,0.9893,0.9588,12348,0.8831,0.6163,0.726,402,0.8365,0.3807,0.5232,471
+weighted_loss,wireflynet_bio_seed42,wireflynet,bio,42,69080,40,35,94.426,85.532,0.7622,0.9542,0.9857,0.9697,12348,0.8284,0.5873,0.6873,402,0.7834,0.5264,0.6297,471
+weighted_loss,wireflynet_bio_seed43,wireflynet,bio,43,69080,35,23,93.631,87.223,0.7487,0.9433,0.988,0.9651,12348,0.8284,0.5771,0.6803,402,0.845,0.466,0.6008,471
+weighted_loss,wireflynet_bio_seed44,wireflynet,bio,44,69080,40,35,94.721,87.322,0.7782,0.9552,0.9879,0.9713,12348,0.8109,0.6443,0.7181,402,0.8535,0.5187,0.6453,471
+weighted_loss,cnn_matched_none_seed42,cnn_matched,none,42,83971,40,39,94.395,82.405,0.7545,0.9574,0.9821,0.9696,12348,0.8035,0.6346,0.7091,402,0.7113,0.4963,0.5846,471
+weighted_loss,cnn_matched_none_seed43,cnn_matched,none,43,83971,40,36,94.191,83.973,0.7517,0.9532,0.9841,0.9684,12348,0.791,0.5835,0.6716,402,0.7749,0.5098,0.615,471
+weighted_loss,cnn_matched_none_seed44,cnn_matched,none,44,83971,39,27,93.412,89.568,0.7531,0.9382,0.9908,0.9638,12348,0.8507,0.5989,0.703,402,0.8981,0.442,0.5924,471

@@ -1,0 +1,13 @@
+#!/bin/bash
+#PBS -N v7r_flow
+#PBS -q workq
+#PBS -l select=1:ncpus=8:mem=32gb
+#PBS -l walltime=48:00:00
+#PBS -j oe
+set -eo pipefail
+cd /Data4/mi_25026207/drone/v7_route_retrain
+source /apps/compilers/anaconda3/etc/profile.d/conda.sh
+conda activate flyuav
+export OMP_NUM_THREADS=1 MKL_NUM_THREADS=1
+/Data4/mi_25026207/.conda/envs/flyuav/bin/python -u precompute_route_flow.py
+echo "Flow preparation completed successfully"

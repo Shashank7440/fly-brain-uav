@@ -1,0 +1,10 @@
+#!/bin/bash
+# Phase 4 small-subset overfit test (real data). Refuses to run full training.
+#PBS -N v8_overfit
+#PBS -l select=1:ncpus=8:mem=32gb:ngpus=1
+#PBS -l walltime=00:30:00
+#PBS -q workq
+#PBS -V
+cd /Data4/mi_25026207/drone/v8_wireflynet/models
+source activate flyuav
+python3 wireflynet.py --mode overfit --graph bio --config ../configs/wireflynet_g1_seed42.json

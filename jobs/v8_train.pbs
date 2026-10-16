@@ -1,0 +1,14 @@
+#!/bin/bash
+# MAIN STUDY (Phase 6): full budget. Submit per graph & seed after the pilot gate.
+# Usage: qsub -v GRAPH=bio,SEED=42      (graphs: bio rewired:0..4 random:0..4; add MODEL=cnn_matched for the no-graph control)
+#PBS -N v8_train
+#PBS -l select=1:ncpus=8:mem=32gb:ngpus=1
+#PBS -l walltime=24:00:00
+#PBS -q workq
+#PBS -V
+GRAPH=${GRAPH:-bio}
+SEED=${SEED:-42}
+MODEL=${MODEL:-wireflynet}
+cd /Data4/mi_25026207/drone/v8_wireflynet/models
+source activate flyuav
+python3 wireflynet.py --mode train --model $MODEL --graph $GRAPH --config ../configs/wireflynet_g1_seed42.json --seed $SEED

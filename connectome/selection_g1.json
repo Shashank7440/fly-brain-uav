@@ -1,0 +1,20 @@
+{
+  "graph": "G1",
+  "status": "PREDECLARED_CANDIDATE_V8_FIRST_TRAINING_GRAPH",
+  "source_release": 783,
+  "source_repository": "https://github.com/murthylab/visual-system-parts-list",
+  "seed_cells": "210 LPLC2 (both hemispheres, is_seed=True)",
+  "expansion_rule": "direct postsynaptic partners of seeds on >=5-synapse edges; upstream excluded",
+  "edge_rule": "induced edges among selected nodes (>=5 synapses)",
+  "n_nodes": 556,
+  "n_edges": 6470,
+  "n_entry": 210,
+  "n_output": 445,
+  "entry_subset_rule": "the 210 LPLC2 seeds (sensory encoder projects here)",
+  "output_subset_rule": "445 direct downstream partners (readout source)",
+  "self_loops": 0,
+  "edge_orientation": "pre_id -> post_id",
+  "g1_neurons_sha256": "7cfce1f190b90e3fd98fbca5c01f056d5bd93a7c7b7f695156bfb23189f8016f",
+  "g1_edges_sha256": "47313dd0fa8fe44e14af493bfca202250783d3192399d2ea61a9b33ec47b3403",
+  "notes": "Downstream-only expansion declared before training because the source export is dominated by LPLC2 upstream columnar fan-in (5312 neurons) with no principled engineered input interface for them; LPLC2 is the documented entry stage of this candidate circuit. This is an engineered selection, not a claim of completeness."
+}

@@ -1,0 +1,94 @@
+{
+  "seed": 20261008,
+  "k": 5,
+  "n_nodes": 556,
+  "n_edges": 6470,
+  "files": {
+    "biological": "biological/g1_bio.npz",
+    "rewired_0": "rewired/g1_rewired_0.npz",
+    "random_0": "random_sparse/g1_random_0.npz",
+    "rewired_1": "rewired/g1_rewired_1.npz",
+    "random_1": "random_sparse/g1_random_1.npz",
+    "rewired_2": "rewired/g1_rewired_2.npz",
+    "random_2": "random_sparse/g1_random_2.npz",
+    "rewired_3": "rewired/g1_rewired_3.npz",
+    "random_3": "random_sparse/g1_random_3.npz",
+    "rewired_4": "rewired/g1_rewired_4.npz",
+    "random_4": "random_sparse/g1_random_4.npz"
+  },
+  "rules": {
+    "rewired": "degree-preserving directed double-edge swaps; exact in/out degree sequences; no self-loops; no duplicates; 20*E swap attempts; synapse counts randomly permuted",
+    "random": "directed Erdos-Renyi, identical N and E, no self-loops; synapse counts randomly permuted from the biological multiset",
+    "entry_output": "entry/output index subsets reused (same counts) for all graphs; random graphs assign the same LPLC2 entry set by convention (declared limitation for rewired/random: entry/output subsets are not biologically meaningful there)",
+    "syn_init": "all controls (rewired + random) initialize from the biological synapse-count multiset, randomly permuted across edges; verified identical (sorted) to g1_bio.npz syn_init values",
+    "fanin_norm_note": "model init divides syn_init by sqrt(post in-degree); final init distributions are near-identical for rewired (degree-sequence matched) and can differ for random (degree sequence differs) \u2014 see init_fanin_stats; rewired is the primary topology control; --no-fanin-norm provides the raw-init ablation arm"
+  },
+  "init_fanin_stats": {
+    "biological": {
+      "mean": 0.234602,
+      "std": 0.778225,
+      "min": 0.023608,
+      "max": 51.858305
+    },
+    "rewired_0": {
+      "mean": 0.223398,
+      "std": 0.516164,
+      "min": 0.023608,
+      "max": 21.914133
+    },
+    "random_0": {
+      "mean": 0.288873,
+      "std": 0.579822,
+      "min": 0.060087,
+      "max": 27.331726
+    },
+    "rewired_1": {
+      "mean": 0.236733,
+      "std": 0.641183,
+      "min": 0.023608,
+      "max": 22.073648
+    },
+    "random_1": {
+      "mean": 0.290471,
+      "std": 0.600752,
+      "min": 0.060087,
+      "max": 29.940406
+    },
+    "rewired_2": {
+      "mean": 0.223691,
+      "std": 0.482594,
+      "min": 0.023608,
+      "max": 13.489267
+    },
+    "random_2": {
+      "mean": 0.28999,
+      "std": 0.626169,
+      "min": 0.058822,
+      "max": 33.474392
+    },
+    "rewired_3": {
+      "mean": 0.23001,
+      "std": 0.729705,
+      "min": 0.023608,
+      "max": 43.828267
+    },
+    "random_3": {
+      "mean": 0.290207,
+      "std": 0.654554,
+      "min": 0.060087,
+      "max": 36.669359
+    },
+    "rewired_4": {
+      "mean": 0.229683,
+      "std": 0.578489,
+      "min": 0.023608,
+      "max": 17.892815
+    },
+    "random_4": {
+      "mean": 0.294386,
+      "std": 0.771011,
+      "min": 0.057634,
+      "max": 47.339939
+    }
+  }
+}

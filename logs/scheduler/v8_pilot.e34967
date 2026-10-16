@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Data4/mi_25026207/drone/v8_wireflynet/models/wireflynet.py", line 619, in <module>
+    rc = {"train": train, "eval": evaluate, "compare": compare, "overfit": overfit}[args.mode]()
+  File "/Data4/mi_25026207/drone/v8_wireflynet/models/wireflynet.py", line 460, in train
+    model = build_model().to(DEVICE)
+  File "/Data4/mi_25026207/drone/v8_wireflynet/models/wireflynet.py", line 387, in build_model
+    raise ValueError("--graph none is only valid with --model cnn_matched; "
+ValueError: --graph none is only valid with --model cnn_matched; wireflynet requires an actual graph (bio | rewired:k | random:k)

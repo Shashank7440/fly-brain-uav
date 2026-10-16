@@ -1,0 +1,16 @@
+#!/bin/bash
+# PILOT (Phase 6): 1 seed, reduced budget. Validation-only configuration decisions.
+# v8.1: pilot.json sets eval_test=false -> NO test metrics are produced by pilots.
+# Usage: qsub -v GRAPH=bio                 (or rewired:0, random:0)
+#        qsub -v GRAPH=none,MODEL=cnn_matched   (no-graph control)
+#PBS -N v8_pilot
+#PBS -l select=1:ncpus=8:mem=32gb:ngpus=1
+#PBS -l walltime=04:00:00
+#PBS -q workq
+#PBS -V
+GRAPH=${GRAPH:-bio}
+MODEL=${MODEL:-wireflynet}
+SEED=${SEED:-42}
+cd /Data4/mi_25026207/drone/v8_wireflynet/models
+source activate flyuav
+python3 wireflynet.py --mode train --model $MODEL --graph $GRAPH --config ../configs/pilot.json --seed $SEED

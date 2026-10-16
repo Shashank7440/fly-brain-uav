@@ -1,0 +1,16 @@
+## /data/v8_milestones/raw/neuron_table.csv
+
+- Shape: 139,255 rows x 7 columns
+- Duplicate rows: 0
+- Candidate key columns (distinct == rows): cell ID
+
+| column | type | non-null | distinct | values |
+| --- | --- | --- | --- | --- |
+| cell ID | number | 100% | 139,255 | 720,575,940,596,125,868 → 720,575,940,661,339,777, mean 720,575,940,625,296,256 |
+| category | text | 100% | 6 | top: excluded (44,144), left intrinsic (43,543), right intrinsic (43,170), right boundary (4,096), left boundary (4,044) |
+| resolved type | text | 99% | 8,581 | top: R1-6 (8,525), KCg-m (2,190), T2a (1,774), Tm3 (1,756), T4c (1,710) |
+| side (cell body) | text | 100% | 3 | top: left (69,959), right (69,093), center (173) |
+| side (most synapses) | text | 96% | 3 | top: left (62,392), right (62,330), center (9,459) |
+| % syns left lobe | number | 100% | 4,418 | 0 → 100, mean 33.72 |
+| % syns right lobe | number | 100% | 4,483 | 0 → 100, mean 33.23 |
+

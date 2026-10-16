@@ -1,0 +1,24 @@
+{
+  "final_train_acc": 95.38461538461539,
+  "passed": true,
+  "n": 65,
+  "class_counts": {
+    "FORWARD": 58,
+    "LEFT": 4,
+    "RIGHT": 3
+  },
+  "per_class_train_acc": {
+    "FORWARD": {
+      "n": 58,
+      "acc": 99.1
+    },
+    "LEFT": {
+      "n": 4,
+      "acc": 74.6
+    },
+    "RIGHT": {
+      "n": 3,
+      "acc": 0.0
+    }
+  }
+}

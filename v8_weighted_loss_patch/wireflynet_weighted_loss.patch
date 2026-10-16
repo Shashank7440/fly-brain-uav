@@ -1,0 +1,180 @@
+--- models/wireflynet.py
++++ models/wireflynet.py
+@@ -34,7 +34,7 @@
+ Usage examples in ../jobs/RUN_COMMANDS.txt
+ """
+ import argparse, csv, json, math, random, time, copy
+-import os, sys
++import os, sys, hashlib
+ from pathlib import Path
+ from collections import Counter
+ 
+@@ -101,6 +101,57 @@
+ CLASSES = ["FORWARD", "LEFT", "RIGHT"]
+ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+ 
++# Follow-up ablation: defaults retain the original sampler and unweighted loss.
++# Share the existing flip probability with the weighting calculation, so LEFT
++# and RIGHT weights reflect the labels actually expected after augmentation.
++TRAIN_HFLIP_P = 0.5
++
++
++def validate_balancing_config(cfg):
++    sampler = cfg.get("train_sampler", "balanced")
++    weighting = cfg.get("class_weighting", "none")
++    if sampler not in {"balanced", "shuffle"}:
++        raise ValueError("train_sampler must be 'balanced' or 'shuffle'")
++    if weighting not in {"none", "inverse_frequency"}:
++        raise ValueError("class_weighting must be 'none' or 'inverse_frequency'")
++    if sampler == "balanced" and weighting != "none":
++        raise ValueError("Do not combine balanced sampling with class-weighted loss. "
++                         "Set train_sampler='shuffle' for the weighted-loss arm.")
++    return sampler, weighting
++
++
++def training_loss_weights(labels, mode, flip_probability=TRAIN_HFLIP_P):
++    """Derive weights ONLY from selected training labels; never val/test.
++
++    The existing training augmentation swaps LEFT/RIGHT on horizontal flips.
++    Use expected augmented counts, not a test-driven direction preference.
++    Counts are expectations, not realized counts in a finite training epoch.
++    """
++    if mode not in {"none", "inverse_frequency"}:
++        raise ValueError("Unknown class weighting mode")
++    if not 0 <= flip_probability <= 1:
++        raise ValueError("Invalid horizontal flip probability")
++    cnt = Counter(labels)
++    if any(label not in range(NUM_CLS) for label in cnt):
++        raise ValueError("Training labels must be 0=FORWARD, 1=LEFT, 2=RIGHT")
++    raw = [int(cnt.get(i, 0)) for i in range(NUM_CLS)]
++    p = flip_probability
++    expected = [float(raw[0]), (1-p)*raw[1] + p*raw[2],
++                (1-p)*raw[2] + p*raw[1]]
++    if mode == "none":
++        return None, raw, expected
++    if any(n <= 0 for n in expected):
++        raise ValueError("Weighted loss requires positive expected training support for every class")
++    total = sum(expected)
++    weights = [total / (NUM_CLS * n) for n in expected]
++    return weights, raw, expected
++
++
++TRAIN_SAMPLER, CLASS_WEIGHTING = validate_balancing_config(CFG)
++if CLASS_WEIGHTING != "none" and EXP_ROOT.resolve() == (V8_ROOT / "experiments").resolve():
++    raise ValueError("Weighted-loss runs must not use the frozen baseline experiments/ "
++                     "directory. Check exp_root and any WF_EXP_ROOT override.")
++
+ 
+ def _worker_init(_):
+     torch.set_num_threads(1); cv2.setNumThreads(0)
+@@ -198,7 +249,7 @@
+             if random.random() < 0.2:
+                 prev = (prev + 0.05 * torch.randn_like(prev)).clamp(0, 1)
+                 curr = (curr + 0.05 * torch.randn_like(curr)).clamp(0, 1)
+-            if random.random() < 0.5:
++            if random.random() < TRAIN_HFLIP_P:
+                 prev, curr = prev.flip(2), curr.flip(2)
+                 fx, fy = -fx.flip(2), fy.flip(2)
+                 label = {1: 2, 2: 1}.get(label, label)
+@@ -233,9 +284,13 @@
+     if split == "train" and augment:
+         kw = dict(batch_size=args.batch, num_workers=args.workers, pin_memory=True,
+                   worker_init_fn=_worker_init, persistent_workers=args.workers > 0)
+-        cnt = Counter(ds.labels())
+-        w = [1.0 / cnt[l] for l in ds.labels()]
+-        return DataLoader(ds, sampler=WeightedRandomSampler(w, len(w), replacement=True), drop_last=True, **kw), ds
++        if TRAIN_SAMPLER == "balanced":
++            cnt = Counter(ds.labels())
++            w = [1.0 / cnt[l] for l in ds.labels()]
++            return DataLoader(ds, sampler=WeightedRandomSampler(w, len(w), replacement=True), drop_last=True, **kw), ds
++        # Ordinary shuffled sampling without replacement; augmentation/drop_last
++        # are unchanged. Class emphasis is supplied by the weighted loss instead.
++        return DataLoader(ds, shuffle=True, drop_last=True, **kw), ds
+     return DataLoader(ds, shuffle=False, batch_size=args.batch, num_workers=2, pin_memory=False), ds
+ 
+ 
+@@ -450,7 +505,9 @@
+     if (out / "best.pt").exists():
+         raise FileExistsError(f"Checkpoint exists: {out / 'best.pt'}. Refusing to retrain/overwrite; use --mode eval.")
+     limit = CFG.get("train_limit")
+-    tr_loader, _ = make_loader("train", augment=True, limit=limit)   # stratified if config says so
++    tr_loader, tr_ds = make_loader("train", augment=True, limit=limit)   # stratified if config says so
++    loss_weights, raw_counts, expected_counts = training_loss_weights(
++        tr_ds.labels(), CLASS_WEIGHTING, flip_probability=TRAIN_HFLIP_P)
+     va_loader, va_ds = make_loader("val")
+     # v8.1.1: in pilot mode (eval_test=false) the test loader is NEVER constructed —
+     # the test split is not even opened, so pilot isolation is structural, not conventional.
+@@ -463,14 +520,35 @@
+     print(f"\n{run_name()}: {n_params:,} params{ginfo} | train {len(tr_loader.dataset)} val {len(va_ds)}"
+           + (f" test {len(te_loader.dataset)}" if do_eval_test else " test ISOLATED (pilot: eval_test=false)"))
+ 
++    run_metadata = dict(
++        run=run_name(), config=copy.deepcopy(CFG), resolved_arguments=vars(args).copy(),
++        train_sampler=TRAIN_SAMPLER, class_weighting=CLASS_WEIGHTING,
++        raw_training_class_counts=dict(zip(CLASSES, raw_counts)),
++        expected_augmented_training_class_counts=dict(zip(CLASSES, expected_counts)),
++        horizontal_flip_probability=TRAIN_HFLIP_P,
++        loss_class_weights=None if loss_weights is None else dict(zip(CLASSES, loss_weights)),
++        training_rows=len(tr_ds),
++        config_sha256=hashlib.sha256(Path(args.config).read_bytes()).hexdigest(),
++        script_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
++        train_manifest_sha256=hashlib.sha256((DATASET_ROOT / "train" / "pairs.csv").read_bytes()).hexdigest(),
++        val_manifest_sha256=hashlib.sha256((DATASET_ROOT / "val" / "pairs.csv").read_bytes()).hexdigest(),
++        eval_test=bool(do_eval_test))
++    (out / "run_metadata.json").write_text(json.dumps(run_metadata, indent=2))
++    print(f"  sampler={TRAIN_SAMPLER} | class_weighting={CLASS_WEIGHTING} | "
++          f"train counts={raw_counts} | expected post-flip counts={expected_counts} | "
++          f"loss weights={loss_weights}", flush=True)
++
+     opt = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=CFG.get("weight_decay", 1e-4))
+     sched = torch.optim.lr_scheduler.OneCycleLR(opt, max_lr=args.lr, total_steps=args.epochs * len(tr_loader), pct_start=0.15)
+     scaler = torch.amp.GradScaler(enabled=DEVICE.type == "cuda")
+-    crit = nn.CrossEntropyLoss(label_smoothing=CFG.get("label_smoothing", 0.05))
++    weight_tensor = None if loss_weights is None else torch.tensor(
++        loss_weights, dtype=torch.float32, device=DEVICE)
++    crit = nn.CrossEntropyLoss(weight=weight_tensor, label_smoothing=CFG.get("label_smoothing", 0.05))
+     ema = EMA(model)
+ 
+     H = {k: [] for k in ["epoch", "train_loss", "train_acc", "val_loss", "val_acc", "val_f1", "lr", "sec"]}
+     best, bad = -1, 0
++    best_vm, best_epoch = None, None
+     for ep in range(1, args.epochs + 1):
+         t0 = time.time(); model.train(); L = C = N = 0
+         for x, y in tr_loader:
+@@ -495,8 +573,10 @@
+         flag = ""
+         if vm["macro_f1"] > best:
+             best, bad, flag = vm["macro_f1"], 0, " *"
++            best_vm, best_epoch = vm, ep
+             torch.save({"epoch": ep, "state": ema.m.state_dict(), "val": vm, "config": CFG,
+-                        "graph": args.graph, "model": args.model, "seed": args.seed}, out / "best.pt")
++                        "graph": args.graph, "model": args.model, "seed": args.seed,
++                        "run_metadata": run_metadata}, out / "best.pt")
+             with open(out / "val_predictions.csv", "w", newline="") as f:
+                 csv.writer(f).writerows([["true", "pred"]] + list(zip(VY, VP)))
+         else:
+@@ -507,6 +587,14 @@
+         if bad >= args.patience:
+             print(f"  early stop at epoch {ep}"); break
+ 
++    validation_result = dict(
++        run=run_name(), params=n_params, graph=args.graph, model=args.model, seed=args.seed,
++        best_epoch=best_epoch, epochs_completed=len(H["epoch"]), val=best_vm,
++        train_sampler=TRAIN_SAMPLER, class_weighting=CLASS_WEIGHTING,
++        input_preprocess=INPUT_PRE, init=CFG.get("init", "synapse"),
++        init_fanin_normalize=bool(CFG.get("init_fanin_normalize", True)),
++        steps=CFG.get("steps", 4), run_metadata=run_metadata)
++    (out / "validation_result.json").write_text(json.dumps(validation_result, indent=2))
+     plot_curves(H, out / "curves.png", f"{run_name()}")
+     if do_eval_test:
+         evaluate()
+@@ -534,6 +622,9 @@
+ @torch.no_grad()
+ def evaluate():
+     """Load saved EMA weights and evaluate test; never trains, never saves weights."""
++    if not CFG.get("eval_test", True) or args.skip_test_eval:
++        raise RuntimeError("Test evaluation is disabled for this config. This follow-up "
++                           "is validation-only; do not use --mode eval during model selection.")
+     set_seed(args.seed)
+     out = EXP_ROOT / run_name()
+     ck_path = out / "best.pt"

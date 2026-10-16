@@ -1,0 +1,12 @@
+{
+  "run": "wireflynet_rewired4_seed42",
+  "graph": {
+    "graph": "rewired:4",
+    "nodes": 556,
+    "edges": 6470,
+    "sha256": "a584694cbddb4af035c743d235975daae268eb623a15f670525da9004240f578"
+  },
+  "seed": 42,
+  "pbs_job_id": "35439.master",
+  "protocol": "Frozen pilot config; validation-only weighted graph control"
+}

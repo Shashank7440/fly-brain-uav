@@ -1,0 +1,11 @@
+
+wireflynet_bio_seed42: 69,080 params | graph bio N=556 E=6470 | train 8000 val 13221 test ISOLATED (pilot: eval_test=false)
+  ep 001 | loss 0.7027 acc 72.42 | val loss 1.0542 acc 93.40 F1 0.3220 | 130s *
+  ep 002 | loss 0.3647 acc 91.56 | val loss 1.0993 acc 3.56 F1 0.0229 | 124s
+  ep 003 | loss 0.3008 acc 94.51 | val loss 1.1024 acc 3.56 F1 0.0229 | 127s
+  ep 004 | loss 0.2712 acc 95.75 | val loss 1.0102 acc 40.34 F1 0.3677 | 126s *
+  ep 005 | loss 0.2527 acc 96.55 | val loss 0.8725 acc 69.86 F1 0.5056 | 128s *
+  ep 006 | loss 0.2311 acc 97.39 | val loss 0.7300 acc 80.11 F1 0.5831 | 126s *
+  ep 007 | loss 0.2158 acc 98.16 | val loss 0.6260 acc 82.44 F1 0.5965 | 129s *
+  ep 008 | loss 0.2157 acc 97.99 | val loss 0.5479 acc 83.79 F1 0.6077 | 127s *
+Test evaluation SKIPPED (pilot: validation-only decisions; run --mode eval when the config is locked).

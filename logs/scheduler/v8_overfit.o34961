@@ -1,0 +1,8 @@
+  ep 1 loss 0.9308 acc 63.1
+  ep 5 loss 0.4262 acc 89.2
+  ep 10 loss 0.3604 acc 89.2
+  ep 15 loss 0.1881 acc 95.4
+  ep 20 loss 0.2457 acc 93.8
+  ep 25 loss 0.1623 acc 95.4
+  ep 30 loss 0.1815 acc 93.8
+OVERFIT TEST FAILED (train acc 93.8; threshold 95)

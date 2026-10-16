@@ -1,0 +1,55 @@
+V8.1.1 (WireFlyNet) run order — final pre-HPC version — do NOT skip gates.
+================================================
+0) Install: extract this package at /Data4/mi_25026207/drone/v8_wireflynet
+   (keep the V7 route-split dataset + flow caches in place — they are reused, hashes checked).
+   Off-HPC: graphs resolve to this package automatically; WF_DATASET_ROOT / WF_IMAGE_SUBROOT /
+   WF_EXP_ROOT / WF_GRAPHS_DIR override the /Data4 defaults for local testing.
+1) Tests (CPU ok, ~2 min):            cd tests && python3 test_suite.py
+   Expect: 66 passed, 0 failed.
+   (v8.1: matched syn_init multiset, V7-matched retina, graph=none handling.
+    v8.1.1: param counts asserted from instantiation (69,080 / 83,971) and
+    fan-in-normalized init stats for all 11 graphs. No env setup needed.)
+1b) Pipeline integration smoke (CPU, ~3 min):  cd tests && python3 integration_smoke.py
+   Expect: 17 passed, 0 failed — runs the REAL train/eval/overfit pipeline end-to-end
+   on a tiny synthetic dataset (pilot isolation incl. unreadable test split, checkpoint
+   protection, val-based selection order, overfit exit codes).
+2) Small-subset overfit (GPU, fast):  qsub jobs/v8_overfit.pbs
+   Expect: OVERFIT TEST PASSED (>=95% train acc on 64 samples).
+   (v8.1: subset is seeded + stratified so all 3 classes are represented; a FAILED
+   overfit now exits non-zero, so PBS reports it — check the job exit status.)
+3) PILOT (1 seed, 8 epochs, 8k pairs):
+     qsub -v GRAPH=bio       jobs/v8_pilot.pbs
+     qsub -v GRAPH=rewired:0 jobs/v8_pilot.pbs
+     qsub -v GRAPH=random:0  jobs/v8_pilot.pbs
+   Gate: training stable (no NaN), compute affordable, step range sane.
+   Validation only for configuration decisions — test set untouched.
+   (v8.1: pilot.json sets eval_test=false — pilots produce NO test metrics; the 8k
+   train subset is stratified across classes, not a head slice. Run --mode eval
+   for a pilot run only AFTER the configuration is locked.)
+4) MAIN STUDY (after pilot gate), per Phase 6: seeds 42 43 44 (prefer 5 seeds),
+   graphs: bio + rewired:0..4 + random:0..4, plus cnn_matched control:
+     for g in bio rewired:0 rewired:1 rewired:2 rewired:3 rewired:4 random:0 random:1 random:2 random:3 random:4; do
+       for s in 42 43 44; do qsub -v GRAPH=$g,SEED=$s jobs/v8_train.pbs; done; done
+   CNN control (no graph; run metadata records graph=none):
+     for s in 42 43 44; do qsub -v "MODEL=cnn_matched,GRAPH=none,SEED=$s" jobs/v8_train.pbs; done
+5) Compare: cd models && python3 wireflynet.py --mode compare
+   -> experiments/compare.csv (add V7 frozen numbers from the V7 archive for the paper table).
+Notes:
+- Existing checkpoints block retraining (by design). New study -> new exp_root.
+- Flow caches are shared with V7; never run two writers on the same cache.
+- Do not choose graphs/seeds based on test results; the graph family and K were
+  pre-declared in graphs/graphs_manifest.json and connectome/selection_g1.json.
+- v8.1: all graph controls (rewired + random) initialize from the biological
+  synapse-count MULTISET (randomly permuted across edges) — verified by the test
+  suite, so bio-vs-control differences are attributable to topology, not init.
+- v8.1: V8 and V7 TinyFlyNet share the same retina preprocessing (contrast-norm RGB,
+  temporal delta, relative flow, divergence -> 11 channels; config
+  input_preprocess=v7_retina). V7 remains a frozen baseline — never retrained.
+- v8.1.1 ANALYSIS FRAMING: the PRIMARY topology test is bio vs rewired:0-4
+  (identical degree sequences -> matched fan-in-normalized init; means within 10%,
+  verified by the test suite). random:0-4 is a secondary control whose init
+  distribution differs (+23% mean after sqrt(in-degree) normalization — measured in
+  graphs_manifest.json init_fanin_stats). Optional sensitivity arm: rerun random:0-4
+  with --no-fanin-norm (raw synapse-count init); compare.csv labels both arms.
+- v8.1.1 pilots never construct the test loader (eval_test=false); the REAL-data
+  overfit gate (step 2) is the only remaining unverified requirement before the study.

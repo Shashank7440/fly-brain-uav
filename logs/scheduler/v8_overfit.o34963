@@ -1,0 +1,14 @@
+  ep 1 loss 0.9309 acc 63.1
+  ep 5 loss 0.4262 acc 89.2
+  ep 10 loss 0.3609 acc 89.2
+  ep 15 loss 0.1888 acc 95.4
+  ep 20 loss 0.2541 acc 93.8
+  ep 25 loss 0.1634 acc 95.4
+  ep 30 loss 0.1777 acc 95.4
+  ep 35 loss 0.1318 acc 95.4
+  ep 40 loss 0.1613 acc 93.8
+  ep 45 loss 0.0804 acc 95.4
+  ep 50 loss 0.2119 acc 92.3
+  ep 55 loss 0.1739 acc 95.4
+  ep 60 loss 0.0992 acc 95.4
+OVERFIT TEST PASSED (train acc 95.4; threshold 95)

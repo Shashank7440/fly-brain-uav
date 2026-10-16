@@ -1,0 +1,37 @@
+{
+  "script_sha256": "fa6eabfa95e57a5f291a4ccd79f02ca17255f63593603af66b0b720589a6f840",
+  "config_sha256": "268d35beafc99726b26a3b1c2abb57782b7deb912673c848fd7bfbb5b639c567",
+  "config_snapshot": {
+    "comment": "V8 follow-up validation-only ablation: shuffled training sampling plus inverse-frequency weighted CE, replacing balanced sampling plus unweighted CE. Weights use training labels and expected counts after the unchanged 50% LEFT/RIGHT-swapping horizontal flip. Original 36 runs remain frozen; already-inspected test is not used for selection.",
+    "input_preprocess": "v7_retina",
+    "eval_test": false,
+    "v8_root": "/Data4/mi_25026207/drone/v8_wireflynet",
+    "dataset_root": "/Data4/mi_25026207/drone/data/flyuav_midair_3class_route_split",
+    "image_subroot": "/Data4/mi_25026207/drone/data/flyuav_midair_3class/MidAir_HPC/Kite_training",
+    "graphs_dir": "/Data4/mi_25026207/drone/v8_wireflynet/graphs",
+    "exp_root": "/Data4/mi_25026207/drone/v8_wireflynet/experiments_weighted_loss",
+    "enc_dim": 128,
+    "enc_channels": [
+      16,
+      32,
+      64
+    ],
+    "steps": 4,
+    "phi": "tanh",
+    "alpha_mode": "learnable",
+    "alpha_init_logit": 2.0,
+    "init": "synapse",
+    "init_fanin_normalize": true,
+    "epochs": 40,
+    "batch": 64,
+    "lr": 0.002,
+    "patience": 12,
+    "weight_decay": 0.0001,
+    "label_smoothing": 0.05,
+    "overfit_n": 64,
+    "overfit_epochs": 60,
+    "train_sampler": "shuffle",
+    "class_weighting": "inverse_frequency"
+  },
+  "note": "Exact model/config used for the completed six-run weighted pilot. Do not replace either file for controls."
+}

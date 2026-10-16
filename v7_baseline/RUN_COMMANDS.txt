@@ -1,0 +1,10 @@
+cd /Data4/mi_25026207/drone/v7_route_retrain
+python prepare_route_split.py
+python audit_pairs.py --root /Data4/mi_25026207/drone/data/flyuav_midair_3class_route_split --out route_audit.json
+qsub v7r_flow.pbs
+# WAIT for flow job to finish successfully, then:
+qsub v7r_train_flynet.pbs
+qsub v7r_train_cnn.pbs
+qsub v7r_train_snn.pbs
+# AFTER all training jobs finish:
+python flynet_v7_routesplit.py --model compare --seed 42

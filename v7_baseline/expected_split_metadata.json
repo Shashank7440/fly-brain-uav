@@ -1,0 +1,307 @@
+{
+  "seed": 42,
+  "source": "/data/route_test_source",
+  "image_root": "/Data4/mi_25026207/drone/data/flyuav_midair_3class/MidAir_HPC/Kite_training",
+  "original_manifest_hashes": {
+    "train": "b3572cc6039011940643c2fff35ddcb9ffd89d0c98432a16bd48f71c15e3ccf6",
+    "val": "6da3c861f923bdb9d0c4b6209c54349bffbccd73e8c9c1168c942923be58ac59",
+    "test": "5814df93082b60a8b5c5fcc1951fd8a896d21941992d4146f5ca4c0d55fe30af"
+  },
+  "grouping": "Exact complete retained label/world/body displacement sequence, corroborated by route-number suffix correspondence; not complete raw pose identity.",
+  "labels_changed": false,
+  "threshold_applied": false,
+  "groups": [
+    {
+      "group_id": "26ccf5a8cdf9469652555b26d1f4469beb3c8b487060f03678643c1af5e3cebc",
+      "split": "train",
+      "climate": "cloudy",
+      "trajectory": "trajectory_3000",
+      "rows": 2105
+    },
+    {
+      "group_id": "26ccf5a8cdf9469652555b26d1f4469beb3c8b487060f03678643c1af5e3cebc",
+      "split": "train",
+      "climate": "foggy",
+      "trajectory": "trajectory_2000",
+      "rows": 2105
+    },
+    {
+      "group_id": "26ccf5a8cdf9469652555b26d1f4469beb3c8b487060f03678643c1af5e3cebc",
+      "split": "train",
+      "climate": "sunny",
+      "trajectory": "trajectory_0000",
+      "rows": 2105
+    },
+    {
+      "group_id": "ca6955438fee717b0b26bbe72c3b8dd1686bd824916a7adab1fcf476115ce635",
+      "split": "train",
+      "climate": "cloudy",
+      "trajectory": "trajectory_3005",
+      "rows": 2205
+    },
+    {
+      "group_id": "ca6955438fee717b0b26bbe72c3b8dd1686bd824916a7adab1fcf476115ce635",
+      "split": "train",
+      "climate": "foggy",
+      "trajectory": "trajectory_2005",
+      "rows": 2205
+    },
+    {
+      "group_id": "ca6955438fee717b0b26bbe72c3b8dd1686bd824916a7adab1fcf476115ce635",
+      "split": "train",
+      "climate": "sunny",
+      "trajectory": "trajectory_0005",
+      "rows": 2205
+    },
+    {
+      "group_id": "89b72a790f742eba6ccf0ff4deb50907f7886fc5873f5bfa778a3048ac3e81b6",
+      "split": "train",
+      "climate": "cloudy",
+      "trajectory": "trajectory_3006",
+      "rows": 2158
+    },
+    {
+      "group_id": "89b72a790f742eba6ccf0ff4deb50907f7886fc5873f5bfa778a3048ac3e81b6",
+      "split": "train",
+      "climate": "foggy",
+      "trajectory": "trajectory_2006",
+      "rows": 2158
+    },
+    {
+      "group_id": "89b72a790f742eba6ccf0ff4deb50907f7886fc5873f5bfa778a3048ac3e81b6",
+      "split": "train",
+      "climate": "sunny",
+      "trajectory": "trajectory_0006",
+      "rows": 2158
+    },
+    {
+      "group_id": "def1c8d9d0bc23a225aaa09536d1ad37fb4fbbd21ed8d907859aa9822eab3f41",
+      "split": "test",
+      "climate": "cloudy",
+      "trajectory": "trajectory_3008",
+      "rows": 2204
+    },
+    {
+      "group_id": "def1c8d9d0bc23a225aaa09536d1ad37fb4fbbd21ed8d907859aa9822eab3f41",
+      "split": "test",
+      "climate": "foggy",
+      "trajectory": "trajectory_2008",
+      "rows": 2204
+    },
+    {
+      "group_id": "def1c8d9d0bc23a225aaa09536d1ad37fb4fbbd21ed8d907859aa9822eab3f41",
+      "split": "test",
+      "climate": "sunny",
+      "trajectory": "trajectory_0008",
+      "rows": 2204
+    },
+    {
+      "group_id": "997e79620e258fbbd51aeb7a838f6392890d236ac97a7b261d219bd25584c190",
+      "split": "train",
+      "climate": "cloudy",
+      "trajectory": "trajectory_3009",
+      "rows": 2208
+    },
+    {
+      "group_id": "997e79620e258fbbd51aeb7a838f6392890d236ac97a7b261d219bd25584c190",
+      "split": "train",
+      "climate": "foggy",
+      "trajectory": "trajectory_2009",
+      "rows": 2208
+    },
+    {
+      "group_id": "997e79620e258fbbd51aeb7a838f6392890d236ac97a7b261d219bd25584c190",
+      "split": "train",
+      "climate": "sunny",
+      "trajectory": "trajectory_0009",
+      "rows": 2208
+    },
+    {
+      "group_id": "f4db3c1031e2fd5fd17f52e029d4d8cc422ad8dc73f5940203b0b938ba230f03",
+      "split": "train",
+      "climate": "cloudy",
+      "trajectory": "trajectory_3010",
+      "rows": 2206
+    },
+    {
+      "group_id": "f4db3c1031e2fd5fd17f52e029d4d8cc422ad8dc73f5940203b0b938ba230f03",
+      "split": "train",
+      "climate": "foggy",
+      "trajectory": "trajectory_2010",
+      "rows": 2206
+    },
+    {
+      "group_id": "f4db3c1031e2fd5fd17f52e029d4d8cc422ad8dc73f5940203b0b938ba230f03",
+      "split": "train",
+      "climate": "sunny",
+      "trajectory": "trajectory_0010",
+      "rows": 2206
+    },
+    {
+      "group_id": "1a784cbe193938981ae72745c5599da4f3f1c6f7a3af2873ff2d2af4e6a5e067",
+      "split": "test",
+      "climate": "cloudy",
+      "trajectory": "trajectory_3011",
+      "rows": 2208
+    },
+    {
+      "group_id": "1a784cbe193938981ae72745c5599da4f3f1c6f7a3af2873ff2d2af4e6a5e067",
+      "split": "test",
+      "climate": "foggy",
+      "trajectory": "trajectory_2011",
+      "rows": 2208
+    },
+    {
+      "group_id": "1a784cbe193938981ae72745c5599da4f3f1c6f7a3af2873ff2d2af4e6a5e067",
+      "split": "test",
+      "climate": "sunny",
+      "trajectory": "trajectory_0011",
+      "rows": 2208
+    },
+    {
+      "group_id": "677e6f947202f5af7b0fe45fffaf449504fbc3722208af06f6d48e8a0a0f2dbf",
+      "split": "val",
+      "climate": "cloudy",
+      "trajectory": "trajectory_3001",
+      "rows": 2204
+    },
+    {
+      "group_id": "677e6f947202f5af7b0fe45fffaf449504fbc3722208af06f6d48e8a0a0f2dbf",
+      "split": "val",
+      "climate": "foggy",
+      "trajectory": "trajectory_2001",
+      "rows": 2204
+    },
+    {
+      "group_id": "677e6f947202f5af7b0fe45fffaf449504fbc3722208af06f6d48e8a0a0f2dbf",
+      "split": "val",
+      "climate": "sunny",
+      "trajectory": "trajectory_0001",
+      "rows": 2204
+    },
+    {
+      "group_id": "cebc2f3fda1eb72285c08d35b6972c6866de68d301e76b4c568d984e2d16430e",
+      "split": "train",
+      "climate": "cloudy",
+      "trajectory": "trajectory_3004",
+      "rows": 2231
+    },
+    {
+      "group_id": "cebc2f3fda1eb72285c08d35b6972c6866de68d301e76b4c568d984e2d16430e",
+      "split": "train",
+      "climate": "foggy",
+      "trajectory": "trajectory_2004",
+      "rows": 2231
+    },
+    {
+      "group_id": "cebc2f3fda1eb72285c08d35b6972c6866de68d301e76b4c568d984e2d16430e",
+      "split": "train",
+      "climate": "sunny",
+      "trajectory": "trajectory_0004",
+      "rows": 2231
+    },
+    {
+      "group_id": "0f19381764cf5053e753596e284c0a04bc13026c37bdc28c8660040fbd279ce6",
+      "split": "val",
+      "climate": "cloudy",
+      "trajectory": "trajectory_3007",
+      "rows": 2203
+    },
+    {
+      "group_id": "0f19381764cf5053e753596e284c0a04bc13026c37bdc28c8660040fbd279ce6",
+      "split": "val",
+      "climate": "foggy",
+      "trajectory": "trajectory_2007",
+      "rows": 2203
+    },
+    {
+      "group_id": "0f19381764cf5053e753596e284c0a04bc13026c37bdc28c8660040fbd279ce6",
+      "split": "val",
+      "climate": "sunny",
+      "trajectory": "trajectory_0007",
+      "rows": 2203
+    },
+    {
+      "group_id": "9dce63b6e7fa242244e308fe3cc34ac9bbc3b81382c2b6a75544e69de1223e51",
+      "split": "train",
+      "climate": "cloudy",
+      "trajectory": "trajectory_3002",
+      "rows": 2201
+    },
+    {
+      "group_id": "9dce63b6e7fa242244e308fe3cc34ac9bbc3b81382c2b6a75544e69de1223e51",
+      "split": "train",
+      "climate": "foggy",
+      "trajectory": "trajectory_2002",
+      "rows": 2201
+    },
+    {
+      "group_id": "9dce63b6e7fa242244e308fe3cc34ac9bbc3b81382c2b6a75544e69de1223e51",
+      "split": "train",
+      "climate": "sunny",
+      "trajectory": "trajectory_0002",
+      "rows": 2201
+    },
+    {
+      "group_id": "2ea3891070d43bbf18b76dcc20960ffada8498ba9bc818639df89beefaa4e57e",
+      "split": "train",
+      "climate": "cloudy",
+      "trajectory": "trajectory_3003",
+      "rows": 2204
+    },
+    {
+      "group_id": "2ea3891070d43bbf18b76dcc20960ffada8498ba9bc818639df89beefaa4e57e",
+      "split": "train",
+      "climate": "foggy",
+      "trajectory": "trajectory_2003",
+      "rows": 2204
+    },
+    {
+      "group_id": "2ea3891070d43bbf18b76dcc20960ffada8498ba9bc818639df89beefaa4e57e",
+      "split": "train",
+      "climate": "sunny",
+      "trajectory": "trajectory_0003",
+      "rows": 2204
+    }
+  ],
+  "counts": {
+    "train": {
+      "rows": 52554,
+      "class_counts": {
+        "0": 47283,
+        "2": 2340,
+        "1": 2931
+      },
+      "route_groups": 8,
+      "recordings": 24,
+      "manifest_sha256": "034647880ad3693ba8495d9f358833a59f0d7b74f2660a27000cc9e22adf5ebd"
+    },
+    "val": {
+      "rows": 13221,
+      "class_counts": {
+        "0": 12348,
+        "2": 471,
+        "1": 402
+      },
+      "route_groups": 2,
+      "recordings": 6,
+      "manifest_sha256": "6ab39811f48ca326c04a45d2be8dc947d3d7f21162573cd19e110f0603abe7f7"
+    },
+    "test": {
+      "rows": 13236,
+      "class_counts": {
+        "0": 12846,
+        "1": 78,
+        "2": 312
+      },
+      "route_groups": 2,
+      "recordings": 6,
+      "manifest_sha256": "724838e23201fd93c5534a3bf52797c80ed13246a81cedae4ecdc4bbe691f9eb"
+    }
+  },
+  "limitations": [
+    "Quaternion and capture-time conventions not independently validated",
+    "Task labels are recorded motion directions, not verified safe avoidance actions",
+    "Only identical retained routes plus checked naming correspondences grouped; raw pose validation recommended"
+  ]
+}

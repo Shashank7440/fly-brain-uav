@@ -1,0 +1,69 @@
+{
+  "train": {
+    "rows": 52554,
+    "class_counts": {
+      "0": 47283,
+      "2": 2340,
+      "1": 2931
+    },
+    "unique_frames": 52590,
+    "trajectory_count": 24,
+    "unresolved_trajectory_rows": 0,
+    "cross_trajectory_pairs": 0,
+    "duplicate_pairs": 0,
+    "invalid_label_rows": [],
+    "manifest_sha256": "034647880ad3693ba8495d9f358833a59f0d7b74f2660a27000cc9e22adf5ebd"
+  },
+  "val": {
+    "rows": 13221,
+    "class_counts": {
+      "0": 12348,
+      "2": 471,
+      "1": 402
+    },
+    "unique_frames": 13227,
+    "trajectory_count": 6,
+    "unresolved_trajectory_rows": 0,
+    "cross_trajectory_pairs": 0,
+    "duplicate_pairs": 0,
+    "invalid_label_rows": [],
+    "manifest_sha256": "6ab39811f48ca326c04a45d2be8dc947d3d7f21162573cd19e110f0603abe7f7"
+  },
+  "test": {
+    "rows": 13236,
+    "class_counts": {
+      "0": 12846,
+      "1": 78,
+      "2": 312
+    },
+    "unique_frames": 13242,
+    "trajectory_count": 6,
+    "unresolved_trajectory_rows": 0,
+    "cross_trajectory_pairs": 0,
+    "duplicate_pairs": 0,
+    "invalid_label_rows": [],
+    "manifest_sha256": "724838e23201fd93c5534a3bf52797c80ed13246a81cedae4ecdc4bbe691f9eb"
+  },
+  "cross_split": {
+    "train__val": {
+      "shared_frames": 0,
+      "shared_pairs": 0,
+      "shared_trajectories": 0,
+      "example_shared_trajectories": []
+    },
+    "train__test": {
+      "shared_frames": 0,
+      "shared_pairs": 0,
+      "shared_trajectories": 0,
+      "example_shared_trajectories": []
+    },
+    "val__test": {
+      "shared_frames": 0,
+      "shared_pairs": 0,
+      "shared_trajectories": 0,
+      "example_shared_trajectories": []
+    }
+  },
+  "scope": "Path-based audit only. Does not certify content duplicates, trajectory identity across climate copies, body-frame label validity, pose/image time alignment, or label generation.",
+  "status": "PATH_CHECKS_PASS_REQUIRES_PROVENANCE_REVIEW"
+}

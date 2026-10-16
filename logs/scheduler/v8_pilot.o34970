@@ -1,0 +1,11 @@
+
+cnn_matched_none_seed42: 83,971 params | train 8000 val 13221 test ISOLATED (pilot: eval_test=false)
+  ep 001 | loss 0.7106 acc 73.34 | val loss 1.0685 acc 93.40 F1 0.3220 | 129s *
+  ep 002 | loss 0.3292 acc 93.22 | val loss 1.0606 acc 93.40 F1 0.3220 | 129s
+  ep 003 | loss 0.2844 acc 95.54 | val loss 1.0373 acc 93.40 F1 0.3220 | 128s
+  ep 004 | loss 0.2774 acc 95.59 | val loss 0.9989 acc 93.33 F1 0.4208 | 127s *
+  ep 005 | loss 0.2414 acc 97.29 | val loss 0.9408 acc 88.90 F1 0.4971 | 128s *
+  ep 006 | loss 0.2263 acc 98.01 | val loss 0.8727 acc 86.33 F1 0.5434 | 123s *
+  ep 007 | loss 0.2277 acc 97.99 | val loss 0.8036 acc 85.08 F1 0.5806 | 128s *
+  ep 008 | loss 0.2205 acc 98.15 | val loss 0.7380 acc 84.73 F1 0.5983 | 129s *
+Test evaluation SKIPPED (pilot: validation-only decisions; run --mode eval when the config is locked).

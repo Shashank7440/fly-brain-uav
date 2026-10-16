@@ -1,0 +1,9 @@
+# Run via the existing GPU/PBS workflow, NOT directly on the login node.
+# Each line is one fresh job. Do not run all lines concurrently on one GPU.
+# Keep the original per-job resources and --workers setting from the main PBS script.
+python3 models/wireflynet.py --mode train --model wireflynet --graph bio --seed 42 --config configs/wireflynet_g1_weighted_loss.json --skip-test-eval
+python3 models/wireflynet.py --mode train --model wireflynet --graph bio --seed 43 --config configs/wireflynet_g1_weighted_loss.json --skip-test-eval
+python3 models/wireflynet.py --mode train --model wireflynet --graph bio --seed 44 --config configs/wireflynet_g1_weighted_loss.json --skip-test-eval
+python3 models/wireflynet.py --mode train --model cnn_matched --graph none --seed 42 --config configs/wireflynet_g1_weighted_loss.json --skip-test-eval
+python3 models/wireflynet.py --mode train --model cnn_matched --graph none --seed 43 --config configs/wireflynet_g1_weighted_loss.json --skip-test-eval
+python3 models/wireflynet.py --mode train --model cnn_matched --graph none --seed 44 --config configs/wireflynet_g1_weighted_loss.json --skip-test-eval

@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "result_file_counts": {
+    "original": 36,
+    "weighted_loss": 36
+  },
+  "g1_counts": {
+    "nodes": 556,
+    "directed_edges": 6470,
+    "entry": 210,
+    "output": 445,
+    "overlap": 99
+  },
+  "maximum_metric_rounding_errors": {
+    "macro_f1": 4.933023447550866e-05,
+    "balanced_accuracy": 0.000495171108610748,
+    "accuracy": 0.0004992058089356988
+  },
+  "failures": [],
+  "scope": "Internal supplied-artifact consistency only. Raw-source extraction, external identities/license, dataset correctness, execution history and independent generalization are not certified. No checkpoints loaded."
+}

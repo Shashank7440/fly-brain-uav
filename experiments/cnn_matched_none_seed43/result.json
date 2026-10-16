@@ -1,0 +1,96 @@
+{
+  "run": "cnn_matched_none_seed43",
+  "params": 83971,
+  "graph": "none",
+  "model": "cnn_matched",
+  "seed": 43,
+  "best_epoch": 20,
+  "val": {
+    "accuracy": 94.32,
+    "balanced_accuracy": 85.159,
+    "macro_f1": 0.7633,
+    "per_class": {
+      "FORWARD": {
+        "recall": 0.9531,
+        "precision": 0.9856,
+        "f1": 0.9691,
+        "support": 12348
+      },
+      "LEFT": {
+        "recall": 0.7736,
+        "precision": 0.6561,
+        "f1": 0.71,
+        "support": 402
+      },
+      "RIGHT": {
+        "recall": 0.828,
+        "precision": 0.4839,
+        "f1": 0.6108,
+        "support": 471
+      }
+    },
+    "confusion": [
+      [
+        11769,
+        163,
+        416
+      ],
+      [
+        91,
+        311,
+        0
+      ],
+      [
+        81,
+        0,
+        390
+      ]
+    ]
+  },
+  "test": {
+    "accuracy": 97.93,
+    "balanced_accuracy": 89.983,
+    "macro_f1": 0.7553,
+    "per_class": {
+      "FORWARD": {
+        "recall": 0.9816,
+        "precision": 0.9971,
+        "f1": 0.9893,
+        "support": 12846
+      },
+      "LEFT": {
+        "recall": 0.7821,
+        "precision": 0.3245,
+        "f1": 0.4586,
+        "support": 78
+      },
+      "RIGHT": {
+        "recall": 0.9359,
+        "precision": 0.7264,
+        "f1": 0.8179,
+        "support": 312
+      }
+    },
+    "confusion": [
+      [
+        12609,
+        127,
+        110
+      ],
+      [
+        17,
+        61,
+        0
+      ],
+      [
+        20,
+        0,
+        292
+      ]
+    ]
+  },
+  "input_preprocess": "v7_retina",
+  "init": "synapse",
+  "init_fanin_normalize": true,
+  "steps": 4
+}

@@ -1,0 +1,34 @@
+
+cnn_matched_none_seed44: 83,971 params | train 52554 val 13221 test 13236
+  ep 001 | loss 0.4897 acc 85.47 | val loss 1.1042 acc 5.39 F1 0.0763 | 297s *
+  ep 002 | loss 0.2670 acc 96.08 | val loss 0.7856 acc 74.82 F1 0.4721 | 297s *
+  ep 003 | loss 0.2477 acc 96.73 | val loss 0.3871 acc 88.21 F1 0.6341 | 303s *
+  ep 004 | loss 0.2319 acc 97.46 | val loss 0.2956 acc 88.68 F1 0.6699 | 301s *
+  ep 005 | loss 0.2227 acc 97.82 | val loss 0.2811 acc 88.78 F1 0.6759 | 306s *
+  ep 006 | loss 0.2092 acc 98.43 | val loss 0.2732 acc 89.44 F1 0.6866 | 311s *
+  ep 007 | loss 0.2084 acc 98.46 | val loss 0.2522 acc 90.44 F1 0.7042 | 307s *
+  ep 008 | loss 0.2008 acc 98.80 | val loss 0.2439 acc 91.12 F1 0.7170 | 307s *
+  ep 009 | loss 0.1981 acc 98.92 | val loss 0.2398 acc 91.29 F1 0.7187 | 301s *
+  ep 010 | loss 0.1939 acc 99.04 | val loss 0.2308 acc 91.77 F1 0.7249 | 306s *
+  ep 011 | loss 0.1901 acc 99.24 | val loss 0.2284 acc 91.89 F1 0.7277 | 302s *
+  ep 012 | loss 0.1898 acc 99.24 | val loss 0.2192 acc 92.33 F1 0.7330 | 301s *
+  ep 013 | loss 0.1871 acc 99.33 | val loss 0.2163 acc 92.54 F1 0.7360 | 299s *
+  ep 014 | loss 0.1860 acc 99.38 | val loss 0.2149 acc 92.41 F1 0.7319 | 294s
+  ep 015 | loss 0.1854 acc 99.43 | val loss 0.2161 acc 92.52 F1 0.7318 | 290s
+  ep 016 | loss 0.1827 acc 99.51 | val loss 0.2216 acc 92.45 F1 0.7298 | 296s
+  ep 017 | loss 0.1826 acc 99.52 | val loss 0.2187 acc 92.65 F1 0.7294 | 296s
+  ep 018 | loss 0.1808 acc 99.58 | val loss 0.2128 acc 92.88 F1 0.7306 | 295s
+  ep 019 | loss 0.1806 acc 99.60 | val loss 0.2081 acc 93.13 F1 0.7302 | 294s
+  ep 020 | loss 0.1798 acc 99.62 | val loss 0.2018 acc 93.21 F1 0.7315 | 293s
+  ep 021 | loss 0.1792 acc 99.64 | val loss 0.2066 acc 93.09 F1 0.7265 | 304s
+  ep 022 | loss 0.1777 acc 99.70 | val loss 0.2019 acc 93.26 F1 0.7297 | 304s
+  ep 023 | loss 0.1787 acc 99.62 | val loss 0.2120 acc 93.07 F1 0.7208 | 295s
+  ep 024 | loss 0.1765 acc 99.71 | val loss 0.2077 acc 93.21 F1 0.7217 | 294s
+  ep 025 | loss 0.1761 acc 99.77 | val loss 0.2002 acc 93.32 F1 0.7178 | 297s
+  early stop at epoch 25
+Loaded /Data4/mi_25026207/drone/v8_wireflynet/experiments/cnn_matched_none_seed44/best.pt | best epoch 13 | EVALUATION ONLY
+{
+  "accuracy": 97.333,
+  "balanced_accuracy": 88.384,
+  "macro_f1": 0.7145
+}

@@ -1,0 +1,11 @@
+
+wireflynet_rewired0_seed42: 69,080 params | graph rewired:0 N=556 E=6470 | train 8000 val 13221 test ISOLATED (pilot: eval_test=false)
+  ep 001 | loss 0.6716 acc 73.60 | val loss 1.0874 acc 3.04 F1 0.0197 | 129s *
+  ep 002 | loss 0.3371 acc 92.81 | val loss 1.0536 acc 41.80 F1 0.2236 | 128s *
+  ep 003 | loss 0.2859 acc 95.01 | val loss 0.9919 acc 90.94 F1 0.4902 | 127s *
+  ep 004 | loss 0.2635 acc 95.95 | val loss 0.9099 acc 91.43 F1 0.5836 | 128s *
+  ep 005 | loss 0.2479 acc 96.65 | val loss 0.8149 acc 88.20 F1 0.5783 | 127s
+  ep 006 | loss 0.2277 acc 97.64 | val loss 0.7047 acc 87.35 F1 0.5908 | 128s *
+  ep 007 | loss 0.2112 acc 98.30 | val loss 0.6093 acc 87.19 F1 0.6144 | 130s *
+  ep 008 | loss 0.2124 acc 98.20 | val loss 0.5328 acc 87.20 F1 0.6320 | 128s *
+Test evaluation SKIPPED (pilot: validation-only decisions; run --mode eval when the config is locked).

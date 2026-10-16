@@ -1,0 +1,20 @@
+#!/bin/bash
+#PBS -N v7r_train_flynet
+#PBS -q workq
+#PBS -l select=1:ncpus=8:ngpus=1:mem=32gb
+#PBS -l walltime=48:00:00
+#PBS -j oe
+set -eo pipefail
+cd /Data4/mi_25026207/drone/v7_route_retrain
+source /apps/compilers/anaconda3/etc/profile.d/conda.sh
+conda activate flyuav
+PYTHON=/Data4/mi_25026207/.conda/envs/flyuav/bin/python
+SEED=${SEED:-42}
+OUT=/Data4/mi_25026207/drone/ExperimentV7RouteSplit/FlyNet/seed${SEED}
+mkdir -p "$OUT"
+export OMP_NUM_THREADS=2 MKL_NUM_THREADS=2
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+echo "=== V7 ROUTE SPLIT FlyNet train | $PBS_JOBID | $(date) ==="
+nvidia-smi -L || true
+$PYTHON -u flynet_v7_routesplit.py --model flynet --mode train --seed "$SEED" --epochs 40 --workers 3 2>&1 | tee "$OUT/train_${PBS_JOBID}.log"
+echo "=== Done | $(date) ==="
